@@ -332,4 +332,891 @@
                 <i data-lucide="zap" class="w-3.5 h-3.5 text-amber-500"></i>
                 <span>Hệ thức Vi-ét (Toán)</span>
               </button>
-              <button type="button" onclick="loadSampleContent('
+              <button type="button" onclick="loadSampleContent('english')" class="px-3 py-1.5 bg-slate-100 hover:bg-blue-50 hover:text-blue-600 text-slate-700 rounded-lg text-xs font-medium border border-slate-200 transition-all flex items-center space-x-1">
+                <i data-lucide="zap" class="w-3.5 h-3.5 text-amber-500"></i>
+                <span>Từ vựng Unit 1 (Anh)</span>
+              </button>
+              <button type="button" onclick="loadSampleContent('history')" class="px-3 py-1.5 bg-slate-100 hover:bg-blue-50 hover:text-blue-600 text-slate-700 rounded-lg text-xs font-medium border border-slate-200 transition-all flex items-center space-x-1">
+                <i data-lucide="zap" class="w-3.5 h-3.5 text-amber-500"></i>
+                <span>Lịch Sử 1918-1930 (Sử)</span>
+              </button>
+              <button type="button" onclick="loadSampleContent('geography')" class="px-3 py-1.5 bg-slate-100 hover:bg-blue-50 hover:text-blue-600 text-slate-700 rounded-lg text-xs font-medium border border-slate-200 transition-all flex items-center space-x-1">
+                <i data-lucide="zap" class="w-3.5 h-3.5 text-amber-500"></i>
+                <span>Vùng Kinh Tế Trọng Điểm (Địa)</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Content Input Area -->
+          <div>
+            <label class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2">Nội Dung Ghi Nhớ Chi Tiết *</label>
+            <textarea id="lesson-content" required rows="6" placeholder="Dán nội dung lý thuyết, từ vựng, công thức hoặc các ý chính cần ghi nhớ vào đây..." class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm bg-white leading-relaxed custom-scrollbar"></textarea>
+          </div>
+
+          <!-- Submit Button -->
+          <div class="pt-3 flex items-center justify-end space-x-3">
+            <button type="button" onclick="switchTab('dashboard')" class="px-5 py-2.5 text-slate-600 hover:bg-slate-100 rounded-xl text-sm font-semibold transition-all">
+              Hủy Bỏ
+            </button>
+            <button type="submit" class="px-6 py-3 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white text-sm font-bold rounded-xl shadow-lg shadow-blue-600/25 transition-all flex items-center space-x-2 active:scale-95">
+              <i data-lucide="save" class="w-4 h-4"></i>
+              <span>Lưu & Tính Lịch Chống Quên</span>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- TAB 3: EBBINGHAUS THEORY & ALGORITHM EXPLANATION -->
+    <div id="tab-theory" class="hidden max-w-4xl mx-auto space-y-6">
+      <div class="glass-card rounded-3xl p-6 sm:p-8 shadow-sm">
+        <div class="flex items-center space-x-3 mb-6 pb-4 border-b border-slate-100">
+          <div class="w-12 h-12 bg-indigo-50 text-indigo-600 rounded-2xl flex items-center justify-center">
+            <i data-lucide="brain" class="w-6 h-6"></i>
+          </div>
+          <div>
+            <h2 class="text-xl font-bold text-slate-900">Cơ Sở Khoa Học & Thuật Toán Ebbinghaus</h2>
+            <p class="text-xs text-slate-500">Đề tài Khoa học Kỹ thuật - Tác giả: Huỳnh Hải Yến</p>
+          </div>
+        </div>
+
+        <div class="space-y-4 text-sm">
+          <div class="bg-blue-50/60 p-4 rounded-2xl border border-blue-100">
+            <h4 class="font-bold text-blue-900 text-base mb-1">1. Định Luật Quên Ebbinghaus (Hermann Ebbinghaus, 1885)</h4>
+            <p class="text-slate-700 leading-relaxed">
+              Tốc độ quên kiến thức của não bộ con người diễn ra theo hàm số mũ suy giảm. Tỷ lệ ghi nhớ còn lại <strong>R</strong> được tính theo công thức toán học:
+            </p>
+            <div class="my-3 p-3 bg-white rounded-xl text-center font-mono font-bold text-blue-700 text-base border border-blue-200">
+              R = e^(-t / S) × 100%
+            </div>
+            <ul class="list-disc list-inside text-xs text-slate-600 space-y-1">
+              <li><strong>R (Retention Rate):</strong> Tỷ lệ kiến thức còn giữ lại được trong trí nhớ (%)</li>
+              <li><strong>t (Time):</strong> Thời gian trôi qua kể từ lần học hoặc ôn gần nhất (tính theo giờ)</li>
+              <li><strong>S (Strength of Memory):</strong> Độ bền của vết trí nhớ (tăng lên sau mỗi lần ôn đạt yêu cầu)</li>
+            </ul>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="p-4 bg-slate-50 rounded-2xl border border-slate-200">
+              <h5 class="font-bold text-slate-800 mb-2 flex items-center gap-1.5">
+                <i data-lucide="clock" class="w-4 h-4 text-amber-500"></i> Các Chu Kỳ Ôn Tập Vàng
+              </h5>
+              <ol class="list-decimal list-inside text-xs text-slate-600 space-y-1.5 font-medium">
+                <li>Lần 1: Sau 24 giờ (Khôi phục trí nhớ từ 40% lên 100%)</li>
+                <li>Lần 2: Sau 3 ngày (Độ bền S tăng gấp 3.5 lần)</li>
+                <li>Lần 3: Sau 7 ngày (Trí nhớ đạt trạng thái ổn định)</li>
+                <li>Lần 4: Sau 21 ngày (Chuyển thành Trí Nhớ Dài Hạn bền vững)</li>
+              </ol>
+            </div>
+
+            <div class="p-4 bg-slate-50 rounded-2xl border border-slate-200">
+              <h5 class="font-bold text-slate-800 mb-2 flex items-center gap-1.5">
+                <i data-lucide="cpu" class="w-4 h-4 text-teal-600"></i> Cơ Chế Đánh Giá Thông Minh
+              </h5>
+              <p class="text-xs text-slate-600 leading-relaxed">
+                Khi học sinh bấm <strong>"Ôn Tập Với AI"</strong>, hệ thống tự động phân tích nội dung bài học (hoặc kết nối Gemini AI nếu có khóa) để tạo bộ 3 câu hỏi trắc nghiệm kiểm tra hiểu sâu. Nếu đạt ≥ 2/3 câu đúng, độ bền trí nhớ S sẽ tự động tăng lên để giãn khoảng cách ôn tập tiếp theo.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-white border-t border-slate-200 py-4 mt-8">
+    <div class="max-w-7xl mx-auto px-4 text-center text-xs text-slate-500">
+      Dự án Khoa học Kỹ thuật: <strong>Hệ thống Ôn tập Chống quên Ebbinghaus Lớp 9</strong> • Tác giả: <span class="font-bold text-indigo-600">Huỳnh Hải Yến</span>
+    </div>
+  </footer>
+
+  <!-- AI QUIZ MODAL -->
+  <div id="quiz-modal" class="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-md flex items-center justify-center p-4 hidden">
+    <div class="bg-white rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl border border-slate-100 flex flex-col justify-between custom-scrollbar">
+
+      <!-- Modal Header -->
+      <div class="p-5 sm:p-6 border-b border-slate-100 flex items-center justify-between sticky top-0 bg-white/95 backdrop-blur-sm z-10">
+        <div class="flex items-center space-x-3">
+          <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-teal-500 to-blue-600 text-white flex items-center justify-center shadow-md">
+            <i data-lucide="sparkles" class="w-5 h-5"></i>
+          </div>
+          <div>
+            <span id="quiz-modal-subject" class="text-xs font-semibold px-2 py-0.5 rounded-md bg-blue-100 text-blue-700">Môn Học</span>
+            <h3 id="quiz-modal-title" class="font-bold text-slate-900 text-base sm:text-lg">Phòng Ôn Tập Thông Minh</h3>
+          </div>
+        </div>
+        <button onclick="closeQuizModal()" class="p-2 text-slate-400 hover:text-slate-600 rounded-full hover:bg-slate-100">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <!-- Modal Body -->
+      <div class="p-5 sm:p-6 space-y-5 flex-1">
+        <!-- Loading State -->
+        <div id="quiz-loading" class="py-10 text-center space-y-3">
+          <div class="inline-block relative">
+            <div class="w-12 h-12 rounded-full border-4 border-blue-200 border-t-blue-600 animate-spin"></div>
+            <i data-lucide="bot" class="w-5 h-5 text-blue-600 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"></i>
+          </div>
+          <p class="text-sm font-semibold text-slate-700">Đang phân tích bài học & tạo bộ câu hỏi trắc nghiệm...</p>
+        </div>
+
+        <!-- Quiz Form Container -->
+        <div id="quiz-container" class="hidden space-y-5">
+          <div class="p-3.5 bg-blue-50/80 border border-blue-100 rounded-2xl flex items-center justify-between text-xs text-blue-800">
+            <span class="flex items-center gap-1.5 font-medium">
+              <i data-lucide="help-circle" class="w-4 h-4 text-blue-600"></i> Trả lời 3 câu hỏi để củng cố vết trí nhớ
+            </span>
+            <span class="font-bold bg-white px-2.5 py-1 rounded-md text-blue-600 shadow-sm">Đạt: ≥ 2/3 câu</span>
+          </div>
+
+          <div id="quiz-questions-list" class="space-y-5"></div>
+        </div>
+
+        <!-- Quiz Result Screen -->
+        <div id="quiz-results" class="hidden text-center space-y-5 py-3">
+          <div id="result-icon-box" class="w-16 h-16 rounded-full mx-auto flex items-center justify-center text-white shadow-xl"></div>
+          <div>
+            <h4 id="result-score-text" class="text-xl font-extrabold text-slate-900">Đạt 3/3 Câu Đúng!</h4>
+            <p id="result-sub-text" class="text-xs sm:text-sm text-slate-500 mt-1">Độ bền trí nhớ đã tăng lên.</p>
+          </div>
+
+          <div id="result-breakdown" class="text-left space-y-2.5 bg-slate-50 p-4 rounded-2xl border border-slate-200 text-xs"></div>
+        </div>
+      </div>
+
+      <!-- Modal Footer -->
+      <div class="p-4 sm:p-5 border-t border-slate-100 bg-slate-50/50 flex items-center justify-end space-x-3 rounded-b-3xl">
+        <button id="btn-quiz-cancel" onclick="closeQuizModal()" class="px-4 py-2 text-slate-600 hover:bg-slate-200/60 rounded-xl text-xs font-semibold transition-all">
+          Đóng
+        </button>
+        <button id="btn-quiz-submit" onclick="submitQuiz()" class="hidden px-5 py-2.5 bg-gradient-to-r from-teal-500 to-blue-600 hover:from-teal-600 hover:to-blue-700 text-white text-xs font-bold rounded-xl shadow-md transition-all flex items-center space-x-1.5 active:scale-95">
+          <i data-lucide="check-circle-2" class="w-4 h-4"></i>
+          <span>Nộp Bài & Cập Nhật Trí Nhớ</span>
+        </button>
+      </div>
+    </div>
+    </div>
+                <!-- OPTIONAL API KEY CONFIG MODAL -->
+  <div id="api-modal" class="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-md flex items-center justify-center p-4 hidden">
+    <div class="bg-white rounded-3xl max-w-md w-full p-6 shadow-2xl border border-slate-100 space-y-4">
+      <div class="flex items-center justify-between">
+        <div class="flex items-center space-x-2">
+          <div class="p-2 bg-blue-50 text-blue-600 rounded-xl">
+            <i data-lucide="key" class="w-5 h-5"></i>
+          </div>
+          <h3 class="font-bold text-slate-900 text-base">Cài Đặt Nâng Cao (Không Bắt Buộc)</h3>
+        </div>
+        <button onclick="toggleApiKeyModal()" class="text-slate-400 hover:text-slate-600"><i data-lucide="x" class="w-5 h-5"></i></button>
+      </div>
+
+      <p class="text-xs text-slate-500 leading-relaxed">
+        Ứng dụng <strong>đã tích hợp sẵn bộ tạo câu hỏi thông minh</strong> nên không cần nhập khóa vẫn dùng bình thường. Nếu muốn dùng thêm Gemini API Key riêng, bạn có thể nhập ở dưới:
+      </p>
+
+      <div>
+        <input type="password" id="api-key-input" placeholder="Dán Gemini API Key (tùy chọn)..." class="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-xs focus:ring-2 focus:ring-blue-500 outline-none">
+      </div>
+
+      <div class="flex items-center justify-end space-x-2 pt-2">
+        <button onclick="toggleApiKeyModal()" class="px-4 py-2 text-slate-600 hover:bg-slate-100 rounded-xl text-xs font-semibold">Đóng</button>
+        <button onclick="saveApiKey()" class="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-xl text-xs font-bold shadow-md">Lưu Khóa</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOAST NOTIFICATION CONTAINER -->
+  <div id="toast-container" class="fixed bottom-5 right-5 z-50 flex flex-col space-y-2 pointer-events-none"></div>
+
+  <!-- JAVASCRIPT LOGIC -->
+  <script>
+    const STORAGE_KEY = 'ebbinghaus_lessons_v2_yen';
+    const API_KEY_STORAGE = 'ebbinghaus_api_key';
+    let lessons = [];
+    let currentSimulatedHours = 0;
+    let currentActiveLessonId = null;
+    let currentQuizData = null;
+    let ebbinghausChartInstance = null;
+    let currentSubjectFilter = 'ALL';
+
+    // Kho bài học mẫu đa dạng cả môn chính lẫn môn phụ Lớp 9
+    const DEFAULT_SAMPLES = [
+      {
+        id: 'sample-1',
+        subject: 'Toán',
+        title: 'Hệ thức Vi-ét và Ứng dụng',
+        content: `Cho phương trình bậc hai ax² + bx + c = 0 (a ≠ 0) có 2 nghiệm x1, x2:
+1. Tổng hai nghiệm: S = x1 + x2 = -b/a
+2. Tích hai nghiệm: P = x1 * x2 = c/a
+Ứng dụng nhẩm nghiệm:
+- Nếu a + b + c = 0 thì x1 = 1, x2 = c/a
+- Nếu a - b + c = 0 thì x1 = -1, x2 = -c/a
+Tìm 2 số khi biết tổng S và tích P: X² - SX + P = 0.`,
+        createdAt: Date.now() - (18 * 3600 * 1000),
+        lastReviewedAt: Date.now() - (18 * 3600 * 1000),
+        stage: 1,
+        strengthS: 28,
+      },
+      {
+        id: 'sample-2',
+        subject: 'Tiếng Anh',
+        title: 'Unit 1: Local Environment - Vocabulary',
+        content: `Từ vựng & Cấu trúc Tiếng Anh 9:
+- Crafts: pottery (đồ gốm), lacquerware (đồ sơn mài), silk (lụa).
+- Phrasal Verbs: pass down (truyền lại cho thế hệ sau), live on (sống dựa vào), deal with (giải quyết), set off (khởi hành).
+- Grammar: Mệnh đề nhượng bộ Although / Even though + S + V.`,
+        createdAt: Date.now() - (45 * 3600 * 1000),
+        lastReviewedAt: Date.now() - (45 * 3600 * 1000),
+        stage: 1,
+        strengthS: 28,
+      },
+      {
+        id: 'sample-3',
+        subject: 'Lịch sử',
+        title: 'Phong trào dân tộc dân chủ (1918 - 1930)',
+        content: `Lịch Sử Việt Nam Lớp 9:
+- Tổ chức Tâm Tâm xã thành lập năm 1923 tại Quảng Châu (Trung Quốc) với tiếng bom Sa Diện của Phạm Hồng Thái (1924).
+- Tháng 6/1925, Nguyễn Ái Quốc thành lập Hội Việt Nam Cách mạng Thanh niên tại Quảng Châu, mở lớp huấn luyện đào tạo cán bộ cách mạng.`,
+        createdAt: Date.now() - (6 * 3600 * 1000),
+        lastReviewedAt: Date.now() - (6 * 3600 * 1000),
+        stage: 2,
+        strengthS: 96,
+      },
+      {
+        id: 'sample-4',
+        subject: 'Hóa học',
+        title: 'Tính chất hóa học của Kim loại (KHTN 9)',
+        content: `Hóa Học Lớp 9:
+- Kim loại đứng trước H (K, Na, Ca, Mg, Al, Zn, Fe...) tác dụng với HCl, H2SO4 loãng tạo Muối + Khí H2.
+- Đồng (Cu), Bạc (Ag), Vàng (Au) không phản ứng với axit HCl, H2SO4 loãng.
+- Sắt (Fe) tác dụng với HCl tạo muối Sắt(II) clorua (FeCl2).`,
+        createdAt: Date.now() - (12 * 3600 * 1000),
+        lastReviewedAt: Date.now() - (12 * 3600 * 1000),
+        stage: 1,
+        strengthS: 28,
+      }
+    ];
+
+    window.onload = function() {
+      lucide.createIcons();
+      loadLessons();
+      initChart();
+      renderDashboard();
+    };
+
+    function loadLessons() {
+      const stored = localStorage.getItem(STORAGE_KEY);
+      if (stored) {
+        try {
+          lessons = JSON.parse(stored);
+        } catch(e) {
+          lessons = DEFAULT_SAMPLES;
+        }
+      } else {
+        lessons = DEFAULT_SAMPLES;
+        saveLessons();
+      }
+    }
+
+    function saveLessons() {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(lessons));
+    }
+
+    function calculateRetention(lesson) {
+      const now = Date.now() + (currentSimulatedHours * 3600 * 1000);
+      const hoursElapsed = Math.max(0, (now - lesson.lastReviewedAt) / (1000 * 3600));
+      const S = lesson.strengthS || 28;
+      const retention = Math.exp(-hoursElapsed / S) * 100;
+      return Math.min(100, Math.max(1, Math.round(retention)));
+    }
+
+    function getStatusInfo(retention) {
+      if (retention >= 70) {
+        return {
+          label: 'Còn nhớ tốt',
+          colorClass: 'bg-emerald-100 text-emerald-800 border-emerald-200',
+          dotColor: 'bg-emerald-500',
+          cardBorder: 'border-slate-200'
+        };
+      } else if (retention >= 40) {
+        return {
+          label: 'Sắp quên',
+          colorClass: 'bg-amber-100 text-amber-800 border-amber-200',
+          dotColor: 'bg-amber-500',
+          cardBorder: 'border-amber-200/80 bg-amber-50/10'
+        };
+      } else {
+        return {
+          label: 'Cần Ôn Gấp!',
+          colorClass: 'bg-rose-100 text-rose-800 border-rose-200 font-bold pulse-urgent',
+          dotColor: 'bg-rose-500 animate-ping',
+          cardBorder: 'border-rose-300 bg-rose-50/20'
+        };
+      }
+    }
+
+    function renderDashboard() {
+      const grid = document.getElementById('lessons-grid');
+      const emptyState = document.getElementById('empty-state');
+      grid.innerHTML = '';
+
+      const filtered = currentSubjectFilter === 'ALL' 
+        ? lessons 
+        : lessons.filter(l => l.subject === currentSubjectFilter);
+
+      document.getElementById('lesson-count-badge').innerText = `${filtered.length} bài`;
+
+      if (filtered.length === 0) {
+        emptyState.classList.remove('hidden');
+      } else {
+        emptyState.classList.add('hidden');
+      }
+
+      let totalRetentionSum = 0;
+      let urgentCount = 0;
+      let masteredCount = 0;
+
+      lessons.forEach(lesson => {
+        const retention = calculateRetention(lesson);
+        totalRetentionSum += retention;
+        if (retention < 40) urgentCount++;
+        if (retention >= 80) masteredCount++;
+      });
+
+      document.getElementById('stat-total-lessons').innerText = lessons.length;
+      document.getElementById('stat-urgent-lessons').innerText = urgentCount;
+      document.getElementById('stat-mastered-lessons').innerText = masteredCount;
+      document.getElementById('stat-avg-retention').innerText = lessons.length > 0 
+        ? Math.round(totalRetentionSum / lessons.length) + '%' 
+        : '0%';
+
+      filtered.forEach(lesson => {
+        const retention = calculateRetention(lesson);
+        const status = getStatusInfo(retention);
+        const stageText = getStageLabel(lesson.stage);
+
+        const card = document.createElement('div');
+        card.className = `glass-card rounded-2xl p-5 border ${status.cardBorder} shadow-sm hover:shadow-md transition-all flex flex-col justify-between relative overflow-hidden group`;
+
+        card.innerHTML = `
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-xs font-bold px-2.5 py-1 rounded-lg bg-blue-50 text-blue-700 border border-blue-100 flex items-center gap-1">
+                <i data-lucide="book" class="w-3 h-3"></i> ${lesson.subject}
+              </span>
+              <span class="text-xs px-2.5 py-1 rounded-full border ${status.colorClass} flex items-center gap-1.5 font-semibold">
+                <span class="w-2 h-2 rounded-full ${status.dotColor}"></span>
+                ${status.label}
+              </span>
+            </div>
+
+            <h3 class="font-bold text-slate-900 text-base mb-1 line-clamp-1 group-hover:text-blue-600 transition-colors">${escapeHtml(lesson.title)}</h3>
+            <p class="text-xs text-slate-500 line-clamp-2 mb-4 leading-relaxed">${escapeHtml(lesson.content)}</p>
+
+            <div class="space-y-1.5 mb-4 bg-slate-50 p-3 rounded-xl border border-slate-100">
+              <div class="flex items-center justify-between text-xs">
+                <span class="text-slate-500 font-medium">Trí nhớ còn lại (R):</span>
+                <span class="font-bold text-slate-900 font-mono">${retention}%</span>
+              </div>
+              <div class="w-full bg-slate-200 rounded-full h-2.5 overflow-hidden">
+                <div class="h-2.5 rounded-full transition-all duration-500 ${retention < 40 ? 'bg-rose-500' : retention < 70 ? 'bg-amber-500' : 'bg-emerald-500'}" style="width: ${retention}%"></div>
+              </div>
+              <div class="flex items-center justify-between text-[10px] text-slate-400 pt-1">
+                <span>Chu kỳ: ${stageText}</span>
+                <span>Độ bền S = ${lesson.strengthS || 28}h</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="pt-3 border-t border-slate-100 flex items-center justify-between gap-2">
+            <button onclick="openQuizModal('${lesson.id}')" class="flex-1 py-2 px-3 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white rounded-xl text-xs font-bold shadow-sm transition-all flex items-center justify-center space-x-1.5 active:scale-95">
+              <i data-lucide="brain-circuit" class="w-3.5 h-3.5"></i>
+              <span>Ôn Tập Với AI</span>
+            </button>
+            <button onclick="deleteLesson('${lesson.id}')" class="p-2 text-slate-400 hover:text-rose-600 hover:bg-rose-50 rounded-lg transition-all" title="Xóa bài học">
+              <i data-lucide="trash-2" class="w-4 h-4"></i>
+            </button>
+          </div>
+        `;
+        grid.appendChild(card);
+      });
+
+      lucide.createIcons();
+    }
+
+    function simulateTimePassing(hours) {
+      currentSimulatedHours += hours;
+      document.getElementById('simulated-hours-badge').innerText = `+${currentSimulatedHours} giờ`;
+      renderDashboard();
+      showToast(`Đã giả lập thời gian trôi qua +${hours} giờ!`, 'info');
+    }
+
+    function resetSimulation() {
+      currentSimulatedHours = 0;
+      document.getElementById('simulated-hours-badge').innerText = `+0 giờ`;
+      renderDashboard();
+      showToast('Đã khôi phục về thời gian thực!', 'success');
+    }
+
+    function handleAddLesson(e) {
+      e.preventDefault();
+      const subject = document.getElementById('lesson-subject').value;
+      const title = document.getElementById('lesson-title').value.trim();
+      const content = document.getElementById('lesson-content').value.trim();
+
+      if (!title || !content) return;
+
+      const newLesson = {
+        id: 'lesson-' + Date.now(),
+        subject: subject,
+        title: title,
+        content: content,
+        createdAt: Date.now(),
+        lastReviewedAt: Date.now(),
+        stage: 1,
+        strengthS: 28
+      };
+
+      lessons.unshift(newLesson);
+      saveLessons();
+      renderDashboard();
+
+      document.getElementById('add-lesson-form').reset();
+      switchTab('dashboard');
+      showToast('Đã thêm bài học thành công!', 'success');
+    }
+
+    function deleteLesson(id) {
+      if (confirm('Bạn có chắc chắn muốn xóa bài học này không?')) {
+        lessons = lessons.filter(l => l.id !== id);
+        saveLessons();
+        renderDashboard();
+        showToast('Đã xóa bài học.', 'info');
+      }
+    }
+
+    function loadSampleContent(type) {
+      if (type === 'viet') {
+        document.getElementById('lesson-subject').value = 'Toán';
+        document.getElementById('lesson-title').value = 'Hệ thức Vi-ét và Ứng dụng';
+        document.getElementById('lesson-content').value = `Cho phương trình bậc hai ax² + bx + c = 0 (a ≠ 0) có 2 nghiệm x1, x2:
+- Tổng hai nghiệm: S = x1 + x2 = -b/a
+- Tích hai nghiệm: P = x1 * x2 = c/a
+- Nếu a + b + c = 0 thì x1 = 1, x2 = c/a. Nếu a - b + c = 0 thì x1 = -1, x2 = -c/a.`;
+      } else if (type === 'english') {
+        document.getElementById('lesson-subject').value = 'Tiếng Anh';
+        document.getElementById('lesson-title').value = 'Unit 1: Local Environment';
+        document.getElementById('lesson-content').value = `Từ vựng & Ngữ pháp Tiếng Anh 9:
+- Craft village: làng nghề thủ công | Pottery: đồ gốm | Lacquerware: đồ sơn mài
+- Pass down: truyền lại | Live on: sống dựa vào | Set off: khởi hành
+- Mệnh đề nhượng bộ: Although / Even though + S + V.`;
+      } else if (type === 'history') {
+        document.getElementById('lesson-subject').value = 'Lịch sử';
+        document.getElementById('lesson-title').value = 'Phong trào dân tộc dân chủ 1918 - 1930';
+        document.getElementById('lesson-content').value = `Lịch Sử 9:
+- Năm 1923, tổ chức Tâm Tâm xã được thành lập tại Quảng Châu. Tháng 6/1924, Phạm Hồng Thái thực hiện tiếng bom Sa Diện.
+- Tháng 6/1925, Nguyễn Ái Quốc sáng lập Hội Việt Nam Cách mạng Thanh niên, xuất bản báo Thanh Niên.`;
+      } else if (type === 'geography') {
+        document.getElementById('lesson-subject').value = 'Địa lý';
+        document.getElementById('lesson-title').value = 'Các vùng kinh tế trọng điểm & Khu công nghệ cao';
+        document.getElementById('lesson-content').value = `Địa Lý 9:
+- Các khu công nghệ cao tiêu biểu ở Việt Nam: Khu công nghệ cao Hòa Lạc (Hà Nội), Khu công nghệ cao Đà Nẵng (Hòa Vang), Khu công nghệ cao TP. Hồ Chí Minh (TP. Thủ Đức).
+- Có vai trò thúc đẩy nghiên cứu khoa học và chuyển giao công nghệ hiện đại.`;
+      }
+    }
+
+    async function openQuizModal(lessonId) {
+      currentActiveLessonId = lessonId;
+      const lesson = lessons.find(l => l.id === lessonId);
+      if (!lesson) return;
+
+      document.getElementById('quiz-modal-subject').innerText = lesson.subject;
+      document.getElementById('quiz-modal-title').innerText = lesson.title;
+
+      document.getElementById('quiz-modal').classList.remove('hidden');
+      document.getElementById('quiz-loading').classList.remove('hidden');
+      document.getElementById('quiz-container').classList.add('hidden');
+      document.getElementById('quiz-results').classList.add('hidden');
+      document.getElementById('btn-quiz-submit').classList.add('hidden');
+
+      currentQuizData = await generateQuizWithAI(lesson);
+
+      setTimeout(() => {
+        renderQuizQuestions(currentQuizData);
+        document.getElementById('quiz-loading').classList.add('hidden');
+        document.getElementById('quiz-container').classList.remove('hidden');
+        document.getElementById('btn-quiz-submit').classList.remove('hidden');
+      }, 500);
+    }
+
+    function closeQuizModal() {
+      document.getElementById('quiz-modal').classList.add('hidden');
+      currentActiveLessonId = null;
+      currentQuizData = null;
+    }
+
+    async function generateQuizWithAI(lesson) {
+      const apiKey = localStorage.getItem(API_KEY_STORAGE) || "";
+      
+      if (apiKey) {
+        try {
+          const promptText = `Tạo đúng 3 câu trắc nghiệm tiếng Việt lớp 9 cho bài "${lesson.title}" (${lesson.subject}) dựa trên: "${lesson.content}". Trả về JSON array: [{"question":"...","options":["A...","B...","C...","D..."],"answer":0,"explanation":"..."}]`;
+          const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              contents: [{ parts: [{ text: promptText }] }],
+              generationConfig: { responseMimeType: "application/json" }
+            })
+          });
+          const data = await response.json();
+          const jsonText = data.candidates?.[0]?.content?.parts?.[0]?.text;
+          if (jsonText) return JSON.parse(jsonText);
+        } catch (err) {
+          console.warn('Chuyển sang bộ tạo câu hỏi tích hợp sẵn.');
+        }
+      }
+
+      return generateOfflineQuiz(lesson);
+    }
+
+    function generateOfflineQuiz(lesson) {
+      if (lesson.subject === 'Toán') {
+        return [
+          {
+            question: "Trong phương trình bậc hai ax² + bx + c = 0 (a ≠ 0), tổng hai nghiệm S (x1 + x2) được tính theo công thức nào?",
+            options: ["A. S = -b / a", "B. S = c / a", "C. S = -c / a", "D. S = b / a"],
+            answer: 0,
+            explanation: "Theo hệ thức Vi-ét, tổng hai nghiệm luôn bằng -b/a."
+          },
+          {
+            question: "Nếu phương trình bậc hai thỏa mãn điều kiện a + b + c = 0 thì nghiệm của phương trình là gì?",
+            options: ["A. x1 = 1 và x2 = c/a", "B. x1 = -1 và x2 = -c/a", "C. x1 = 0 và x2 = c/a", "D. Phương trình vô nghiệm"],
+            answer: 0,
+            explanation: "Nếu a + b + c = 0 thì phương trình có nghiệm x1 = 1 và x2 = c/a."
+          },
+          {
+            question: "Hai số có tổng là S và tích là P là nghiệm của phương trình nào sau đây?",
+            options: ["A. X² - SX + P = 0", "B. X² + SX + P = 0", "C. X² - PX + S = 0", "D. X² + SX - P = 0"],
+            answer: 0,
+            explanation: "Hai số có tổng S và tích P là nghiệm của phương trình X² - SX + P = 0 (với S² ≥ 4P)."
+          }
+        ];
+      } else if (lesson.subject === 'Tiếng Anh') {
+        return [
+          {
+            question: "Cụm động từ (Phrasal verb) nào mang nghĩa là 'truyền lại cho thế hệ sau'?",
+            options: ["A. pass down", "B. live on", "C. set off", "D. deal with"],
+            answer: 0,
+            explanation: "'Pass down' có nghĩa là truyền lại nghề truyền thống hoặc kiến thức cho thế hệ sau."
+          },
+          {
+            question: "Liên từ 'Although / Even though' đứng trước cấu trúc ngữ pháp nào?",
+            options: ["A. Một mệnh đề (S + V)", "B. Cụm danh từ (Noun Phrase)", "C. Động từ thêm -ing", "D. Động từ nguyên mẫu có To"],
+            answer: 0,
+            explanation: "Although / Even though + S + V dùng để diễn tả sự tương phản, nhượng bộ."
+          },
+          {
+            question: "Từ 'pottery' chỉ sản phẩm làng nghề truyền thống nào?",
+            options: ["A. Đồ gốm", "B. Đồ sơn mài", "C. Lụa tơ tằm", "D. Điêu khắc đá"],
+            answer: 0,
+            explanation: "Pottery nghĩa là đồ gốm sứ thủ công."
+          }
+        ];
+      } else if (lesson.subject === 'Lịch sử') {
+        return [
+          {
+            question: "Tổ chức Tâm Tâm xã được thành lập vào năm 1923 ở đâu?",
+            options: ["A. Quảng Châu (Trung Quốc)", "B. Hà Nội (Việt Nam)", "C. Pa-ri (Pháp)", "D. Băng Cốc (Thái Lan)"],
+            answer: 0,
+            explanation: "Tâm Tâm xã do một số thanh niên Việt Nam yêu nước thành lập tại Quảng Châu (Trung Quốc) năm 1923."
+          },
+          {
+            question: "Ai là người thực hiện tiếng bom Sa Diện (6/1924) gây tiếng vang lớn?",
+            options: ["A. Phạm Hồng Thái", "B. Phan Bội Châu", "C. Phan Châu Trinh", "D. Nguyễn Thái Học"],
+            answer: 0,
+            explanation: "Tiếng bom Sa Diện của liệt sĩ Phạm Hồng Thái đã thức tỉnh tinh thần yêu nước của nhân dân."
+          },
+          {
+            question: "Tháng 6/1925, Nguyễn Ái Quốc đã thành lập tổ chức tiền thân nào của Đảng?",
+            options: ["A. Hội Việt Nam Cách mạng Thanh niên", "B. Việt Nam Quốc dân đảng", "C. Tân Việt Cách mạng đảng", "D. Đông Dương Cộng sản đảng"],
+            answer: 0,
+            explanation: "Hội Việt Nam Cách mạng Thanh niên được Nguyễn Ái Quốc thành lập tháng 6/1925 tại Quảng Châu."
+          }
+        ];
+      } else {
+        return [
+          {
+            question: `Mục tiêu cốt lõi khi ôn tập chủ đề "${lesson.title}" (${lesson.subject}) là gì?`,
+            options: ["A. Hiểu rõ bản chất kiến thức, quy luật và vận dụng chính xác", "B. Học vẹt không cần hiểu ý nghĩa", "C. Bỏ qua các ví dụ thực tế", "D. Chỉ học 1 lần duy nhất trước ngày thi"],
+            answer: 0,
+            explanation: "Nắm vững bản chất lý thuyết giúp giải quyết tốt cả câu hỏi nhận biết lẫn vận dụng."
+          },
+          {
+            question: "Theo đường cong quên Ebbinghaus, sau 24 giờ không ôn tập, trí nhớ giảm xuống còn khoảng bao nhiêu?",
+            options: ["A. Khoảng 40% - 45%", "B. Vẫn giữ nguyên 100%", "C. Giảm về 0% ngay lập tức", "D. Tăng lên 120%"],
+            answer: 0,
+            explanation: "Sau 24 giờ đầu tiên, não bộ đào thải khoảng 55-60% thông tin nếu không được nhắc lại."
+          },
+          {
+            question: "Việc ôn tập ngắt quãng đúng các mốc vàng (24h, 3 ngày, 7 ngày, 21 ngày) có tác dụng gì?",
+            options: ["A. Tăng độ bền trí nhớ S và chuyển kiến thức vào trí nhớ dài hạn", "B. Làm tốn thời gian học tập hơn", "C. Chỉ áp dụng được cho môn Toán", "D. Không làm thay đổi khả năng ghi nhớ"],
+            answer: 0,
+            explanation: "Mỗi lần ôn tập thành công giúp nâng cao hệ số bền vững S, giúp nhớ kiến thức lâu hơn."
+          }
+        ];
+      }
+    }
+
+    function renderQuizQuestions(quizData) {
+      const container = document.getElementById('quiz-questions-list');
+      container.innerHTML = '';
+
+      quizData.forEach((q, idx) => {
+        const qBox = document.createElement('div');
+        qBox.className = 'p-4 rounded-2xl bg-slate-50 border border-slate-200/80 space-y-2.5';
+        
+        let optionsHtml = '';
+        q.options.forEach((opt, oIdx) => {
+          optionsHtml += `
+            <label class="flex items-center space-x-3 p-3 rounded-xl bg-white border border-slate-200 hover:border-blue-400 cursor-pointer transition-all">
+              <input type="radio" name="question-${idx}" value="${oIdx}" class="w-4 h-4 text-blue-600 focus:ring-blue-500">
+              <span class="text-xs font-medium text-slate-700">${escapeHtml(opt)}</span>
+            </label>
+          `;
+        });
+
+        qBox.innerHTML = `
+          <h4 class="font-bold text-slate-800 text-xs sm:text-sm">Câu ${idx + 1}: ${escapeHtml(q.question)}</h4>
+          <div class="space-y-2">${optionsHtml}</div>
+        `;
+        container.appendChild(qBox);
+      });
+    }
+
+    function submitQuiz() {
+      if (!currentQuizData || !currentActiveLessonId) return;
+
+      let score = 0;
+      const breakdown = [];
+
+      currentQuizData.forEach((q, idx) => {
+        const selectedOption = document.querySelector(`input[name="question-${idx}"]:checked`);
+        const userChoice = selectedOption ? parseInt(selectedOption.value) : -1;
+        const isCorrect = userChoice === q.answer;
+
+        if (isCorrect) score++;
+
+        breakdown.push({
+          qTitle: q.question,
+          isCorrect: isCorrect,
+          userAnsText: userChoice >= 0 ? q.options[userChoice] : 'Chưa chọn đáp án',
+          correctAnsText: q.options[q.answer],
+          explanation: q.explanation
+        });
+      });
+
+      const lesson = lessons.find(l => l.id === currentActiveLessonId);
+      if (lesson) {
+        lesson.lastReviewedAt = Date.now() + (currentSimulatedHours * 3600 * 1000);
+        
+        if (score >= 2) {
+          lesson.stage = Math.min(5, (lesson.stage || 1) + 1);
+          if (lesson.stage === 2) lesson.strengthS = 96;
+          else if (lesson.stage === 3) lesson.strengthS = 220;
+          else if (lesson.stage === 4) lesson.strengthS = 650;
+          else lesson.strengthS = 1800;
+        } else {
+          lesson.stage = 1;
+          lesson.strengthS = 16;
+        }
+        saveLessons();
+        renderDashboard();
+      }
+
+      document.getElementById('quiz-container').classList.add('hidden');
+      document.getElementById('btn-quiz-submit').classList.add('hidden');
+      
+      const resScreen = document.getElementById('quiz-results');
+      resScreen.classList.remove('hidden');
+
+      const iconBox = document.getElementById('result-icon-box');
+      const scoreText = document.getElementById('result-score-text');
+      const subText = document.getElementById('result-sub-text');
+
+      if (score >= 2) {
+        iconBox.className = 'w-16 h-16 rounded-full mx-auto flex items-center justify-center text-white shadow-xl bg-gradient-to-tr from-emerald-500 to-teal-500';
+        iconBox.innerHTML = '<i data-lucide="check-circle" class="w-9 h-9"></i>';
+        scoreText.innerText = `Xuất Sắc! Đạt ${score}/3 Câu Đúng`;
+        subText.innerText = `Độ bền trí nhớ tăng lên S = ${lesson.strengthS}h. Trí nhớ đã được củng cố về 100%!`;
+      } else {
+        iconBox.className = 'w-16 h-16 rounded-full mx-auto flex items-center justify-center text-white shadow-xl bg-gradient-to-tr from-rose-500 to-amber-500';
+        iconBox.innerHTML = '<i data-lucide="alert-circle" class="w-9 h-9"></i>';
+        scoreText.innerText = `Cần Ôn Lại! Đạt ${score}/3 Câu Đúng`;
+        subText.innerText = `Hệ thống đặt lại chu kỳ ôn tập ngắn hơn (S = 16h) để giúp bạn nhớ kỹ bài này.`;
+      }
+
+      const bdList = document.getElementById('result-breakdown');
+      bdList.innerHTML = '';
+      breakdown.forEach((item, i) => {
+        const itemBox = document.createElement('div');
+        itemBox.className = `p-3 rounded-xl border ${item.isCorrect ? 'bg-emerald-50/70 border-emerald-200 text-emerald-900' : 'bg-rose-50/70 border-rose-200 text-rose-900'}`;
+        itemBox.innerHTML = `
+          <div class="font-bold mb-1">Câu ${i+1}: ${escapeHtml(item.qTitle)}</div>
+          <div class="text-[11px] mb-1">Bạn chọn: <strong>${escapeHtml(item.userAnsText)}</strong> ${item.isCorrect ? '✓' : '✗'}</div>
+          ${!item.isCorrect ? `<div class="text-[11px] font-semibold text-emerald-700">Đáp án đúng: ${escapeHtml(item.correctAnsText)}</div>` : ''}
+          <div class="text-[10px] text-slate-500 mt-1 italic">💡 ${escapeHtml(item.explanation)}</div>
+        `;
+        bdList.appendChild(itemBox);
+      });
+
+      lucide.createIcons();
+    }
+
+    function initChart() {
+      const ctx = document.getElementById('ebbinghausChart').getContext('2d');
+      const timeLabels = ['Vừa học', '24 Giờ', '3 Ngày', '7 Ngày', '21 Ngày', '30 Ngày'];
+      const noReviewData = [100, 42, 28, 18, 9, 5];
+      const withReviewData = [100, 95, 92, 90, 88, 85];
+
+      ebbinghausChartInstance = new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: timeLabels,
+          datasets: [
+            {
+              label: 'Có Ôn Tập Ebbinghaus (%)',
+              data: withReviewData,
+              borderColor: '#2563eb',
+              backgroundColor: 'rgba(37, 99, 235, 0.1)',
+              borderWidth: 3,
+              fill: true,
+              tension: 0.3,
+              pointBackgroundColor: '#1d4ed8',
+              pointRadius: 4
+            },
+            {
+              label: 'Không Ôn Tập (%)',
+              data: noReviewData,
+              borderColor: '#f43f5e',
+              borderDash: [5, 5],
+              borderWidth: 2,
+              fill: false,
+              tension: 0.3,
+              pointBackgroundColor: '#f43f5e',
+              pointRadius: 3
+            }
+          ]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: { display: false },
+            tooltip: {
+              callbacks: {
+                label: function(context) {
+                  return context.dataset.label + ': ' + context.parsed.y + '%';
+                }
+              }
+            }
+          },
+          scales: {
+            y: {
+              min: 0,
+              max: 100,
+              ticks: {
+                callback: function(val) { return val + '%'; },
+                font: { size: 10 }
+              },
+              grid: { color: '#f1f5f9' }
+            },
+            x: {
+              ticks: { font: { size: 10 } },
+              grid: { display: false }
+            }
+          }
+        }
+      });
+    }
+
+    function switchTab(tabName) {
+      document.getElementById('tab-dashboard').classList.add('hidden');
+      document.getElementById('tab-add').classList.add('hidden');
+      document.getElementById('tab-theory').classList.add('hidden');
+
+      const defaultNav = 'px-2.5 sm:px-3 py-2 rounded-lg text-xs sm:text-sm font-medium transition-all flex items-center space-x-1.5 text-slate-600 hover:text-blue-600 hover:bg-slate-100';
+      const activeNav = 'px-2.5 sm:px-3 py-2 rounded-lg text-xs sm:text-sm font-medium transition-all flex items-center space-x-1.5 bg-blue-50 text-blue-700 shadow-sm';
+
+      document.getElementById('nav-dashboard').className = defaultNav;
+      document.getElementById('nav-add').className = defaultNav;
+      document.getElementById('nav-theory').className = defaultNav;
+
+      if (tabName === 'dashboard') {
+        document.getElementById('tab-dashboard').classList.remove('hidden');
+        document.getElementById('nav-dashboard').className = activeNav;
+        renderDashboard();
+      } else if (tabName === 'add') {
+        document.getElementById('tab-add').classList.remove('hidden');
+        document.getElementById('nav-add').className = activeNav;
+      } else if (tabName === 'theory') {
+        document.getElementById('tab-theory').classList.remove('hidden');
+        document.getElementById('nav-theory').className = activeNav;
+      }
+    }
+
+    function filterLessons(subj, btnElement) {
+      currentSubjectFilter = subj;
+      document.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.className = 'filter-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-white border border-slate-200 text-slate-600 hover:bg-slate-50 transition-all whitespace-nowrap';
+      });
+      if (btnElement) {
+        btnElement.className = 'filter-btn px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-900 text-white transition-all whitespace-nowrap';
+      }
+      renderDashboard();
+    }
+
+    function toggleApiKeyModal() {
+      const modal = document.getElementById('api-modal');
+      modal.classList.toggle('hidden');
+      if (!modal.classList.contains('hidden')) {
+        document.getElementById('api-key-input').value = localStorage.getItem(API_KEY_STORAGE) || '';
+      }
+    }
+
+    function saveApiKey() {
+      const key = document.getElementById('api-key-input').value.trim();
+      localStorage.setItem(API_KEY_STORAGE, key);
+      toggleApiKeyModal();
+      showToast('Đã lưu cài đặt thành công!', 'success');
+    }
+
+    function showToast(message, type = 'info') {
+      const container = document.getElementById('toast-container');
+      const toast = document.createElement('div');
+      const bgColor = type === 'success' ? 'bg-emerald-600' : 'bg-slate-900';
+      
+      toast.className = `${bgColor} text-white px-4 py-3 rounded-xl shadow-xl text-xs font-semibold flex items-center space-x-2 transition-all duration-300 transform translate-y-2 opacity-0 pointer-events-auto`;
+      toast.innerHTML = `
+        <i data-lucide="${type === 'success' ? 'check-circle' : 'info'}" class="w-4 h-4"></i>
+        <span>${escapeHtml(message)}</span>
+      `;
+      
+      container.appendChild(toast);
+      lucide.createIcons();
+
+      setTimeout(() => toast.classList.remove('translate-y-2', 'opacity-0'), 10);
+      setTimeout(() => {
+        toast.classList.add('opacity-0', 'translate-y-2');
+        setTimeout(() => toast.remove(), 300);
+      }, 3000);
+    }
+
+    function escapeHtml(str) {
+      if (!str) return '';
+      return str.replace(/[&<>"']/g, m => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;' }[m]));
+    }
+  </script>
+</body>
+</html>
