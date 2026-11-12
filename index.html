@@ -497,8 +497,9 @@
         </button>
       </div>
     </div>
-    </div>
-                <!-- OPTIONAL API KEY CONFIG MODAL -->
+  </div>
+
+  <!-- OPTIONAL API KEY CONFIG MODAL -->
   <div id="api-modal" class="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-md flex items-center justify-center p-4 hidden">
     <div class="bg-white rounded-3xl max-w-md w-full p-6 shadow-2xl border border-slate-100 space-y-4">
       <div class="flex items-center justify-between">
@@ -653,6 +654,17 @@ Tìm 2 số khi biết tổng S và tích P: X² - SX + P = 0.`,
           dotColor: 'bg-rose-500 animate-ping',
           cardBorder: 'border-rose-300 bg-rose-50/20'
         };
+      }
+    }
+
+    function getStageLabel(stage) {
+      switch(stage) {
+        case 1: return 'Mốc 1: 24 Giờ';
+        case 2: return 'Mốc 2: 3 Ngày';
+        case 3: return 'Mốc 3: 7 Ngày';
+        case 4: return 'Mốc 4: 21 Ngày';
+        case 5: return 'Đã Thuộc Lòng';
+        default: return 'Mốc 1: 24 Giờ';
       }
     }
 
@@ -1045,7 +1057,7 @@ Tìm 2 số khi biết tổng S và tích P: X² - SX + P = 0.`,
       const scoreText = document.getElementById('result-score-text');
       const subText = document.getElementById('result-sub-text');
 
-      if (score >= 2) {
+    if (score >= 2) {
         iconBox.className = 'w-16 h-16 rounded-full mx-auto flex items-center justify-center text-white shadow-xl bg-gradient-to-tr from-emerald-500 to-teal-500';
         iconBox.innerHTML = '<i data-lucide="check-circle" class="w-9 h-9"></i>';
         scoreText.innerText = `Xuất Sắc! Đạt ${score}/3 Câu Đúng`;
