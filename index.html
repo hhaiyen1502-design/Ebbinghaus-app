@@ -78,8 +78,7 @@
           <div>
             <div class="flex items-center flex-wrap gap-1.5">
               <span class="font-extrabold text-base sm:text-xl tracking-tight bg-gradient-to-r from-blue-700 via-indigo-600 to-teal-600 bg-clip-text text-transparent">Ebbinghaus AI</span>
-              <span class="bg-blue-100 text-blue-700 text-[10px] sm:text-xs font-semibold px-2 py-0.5 rounded-full border border-blue-200">Toàn Diện Lớp 9</span>
-            </div>
+              <span class="bg-blue-100 text-blue-700 text-[10px] sm:text-xs font-semibold px-2 py-0.5 rounded-full border border-blue-200">Toàn Diện Lớp 9</span></div>
             <p class="text-[11px] sm:text-xs text-slate-500 font-medium">Tác giả: <span class="text-indigo-600 font-bold">Huỳnh Hải Yến</span></p>
           </div>
         </div>
@@ -88,7 +87,7 @@
         <nav class="flex items-center space-x-1 sm:space-x-2">
           <button id="nav-dashboard" onclick="switchTab('dashboard')" class="px-2.5 sm:px-3 py-2 rounded-lg text-xs sm:text-sm font-medium transition-all flex items-center space-x-1.5 bg-blue-50 text-blue-700 shadow-sm">
             <i data-lucide="layout-dashboard" class="w-4 h-4"></i>
-            <span class="hidden md:inline">Lịch Trình & Tiến Độ</span>
+            <span class="hidden md:inline">Kho Kiến Thức & Tiến Độ</span>
           </button>
           <button id="nav-add" onclick="switchTab('add')" class="px-2.5 sm:px-3 py-2 rounded-lg text-xs sm:text-sm font-medium text-slate-600 hover:text-blue-600 hover:bg-slate-100 transition-all flex items-center space-x-1.5">
             <i data-lucide="plus-circle" class="w-4 h-4"></i>
@@ -154,7 +153,7 @@
           </div>
           <div class="flex items-baseline space-x-2">
             <span id="stat-total-lessons" class="text-2xl sm:text-3xl font-extrabold text-slate-900">0</span>
-            <span class="text-xs text-slate-500">chủ đề</span>
+            <span class="text-xs text-slate-500">chuyên đề</span>
           </div>
         </div>
 
@@ -220,12 +219,12 @@
           <div>
             <h3 class="font-bold text-slate-900 text-base mb-3 flex items-center gap-2">
               <i data-lucide="sparkles" class="w-5 h-5 text-amber-500"></i>
-              Nguyên Lý Chống Quên Lớp 9
+              Hướng Dẫn Ôn Tập Lớp 9
             </h3>
             <div class="space-y-3 text-xs text-slate-600">
               <div class="p-3 bg-blue-50/80 border border-blue-100 rounded-xl flex items-start space-x-2.5">
-                <i data-lucide="info" class="w-4 h-4 text-blue-600 mt-0.5 shrink-0"></i>
-                <span><strong>Công thức Ebbinghaus:</strong> Sau 24 giờ không ôn tập, não bộ sẽ quên mất 55-60% kiến thức vừa học.</span>
+                <i data-lucide="book-open" class="w-4 h-4 text-blue-600 mt-0.5 shrink-0"></i>
+                <span><strong>Xem tóm tắt chi tiết:</strong> Bấm nút <em>"Xem Tóm Tắt"</em> trên mỗi thẻ bài học để đọc trọn bộ công thức, sự kiện và từ vựng cốt lõi của 9 môn học.</span>
               </div>
               <div class="p-3 bg-amber-50/80 border border-amber-100 rounded-xl flex items-start space-x-2.5">
                 <i data-lucide="target" class="w-4 h-4 text-amber-600 mt-0.5 shrink-0"></i>
@@ -233,7 +232,7 @@
               </div>
               <div class="p-3 bg-emerald-50/80 border border-emerald-100 rounded-xl flex items-start space-x-2.5">
                 <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600 mt-0.5 shrink-0"></i>
-                <span><strong>Trắc nghiệm tự động:</strong> Bấm <em>"Ôn Tập Với AI"</em> trên từng thẻ bài học để làm 3 câu kiểm tra nhanh mà không cần cấu hình phức tạp.</span>
+                <span><strong>Trắc nghiệm AI:</strong> Bấm <em>"Ôn Tập AI"</em> để luyện 3 câu hỏi kiểm tra kiến thức ngay lập tức mà không cần nhập Key.</span>
               </div>
             </div>
           </div>
@@ -249,23 +248,27 @@
       <div>
         <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-4">
           <div class="flex items-center space-x-2.5">
-            <h2 class="text-lg sm:text-xl font-bold text-slate-900">Kho Bài Học Các Môn Lớp 9</h2>
+            <h2 class="text-lg sm:text-xl font-bold text-slate-900">Kho Tóm Tắt Kiến Thức 9 Môn Lớp 9</h2>
             <span id="lesson-count-badge" class="px-2.5 py-0.5 bg-slate-200 text-slate-700 text-xs font-bold rounded-full">0 bài</span>
           </div>
+          <button onclick="restoreDefaultLibrary()" class="text-xs text-blue-600 hover:text-blue-800 font-semibold flex items-center gap-1 self-start sm:self-auto bg-blue-50 px-3 py-1.5 rounded-lg border border-blue-100 transition-all">
+            <i data-lucide="refresh-cw" class="w-3.5 h-3.5"></i>
+            <span>Khôi phục đủ 9 môn mặc định</span>
+          </button>
+        </div>
 
-          <!-- All Subjects Filters (Môn chính + Môn phụ) -->
-          <div class="flex items-center space-x-1.5 overflow-x-auto pb-2 sm:pb-0 custom-scrollbar">
-            <button onclick="filterLessons('ALL', this)" class="filter-btn px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-900 text-white transition-all whitespace-nowrap">Tất cả</button>
-            <button onclick="filterLessons('Toán', this)" class="filter-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-white border border-slate-200 text-slate-600 hover:bg-slate-50 transition-all whitespace-nowrap">Toán</button>
-            <button onclick="filterLessons('Ngữ văn', this)" class="filter-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-white border border-slate-200 text-slate-600 hover:bg-slate-50 transition-all whitespace-nowrap">Ngữ Văn</button>
-            <button onclick="filterLessons('Tiếng Anh', this)" class="filter-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-white border border-slate-200 text-slate-600 hover:bg-slate-50 transition-all whitespace-nowrap">Tiếng Anh</button>
-            <button onclick="filterLessons('Vật lý', this)" class="filter-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-white border border-slate-200 text-slate-600 hover:bg-slate-50 transition-all whitespace-nowrap">Vật Lý</button>
-            <button onclick="filterLessons('Hóa học', this)" class="filter-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-white border border-slate-200 text-slate-600 hover:bg-slate-50 transition-all whitespace-nowrap">Hóa Học</button>
-            <button onclick="filterLessons('Sinh học', this)" class="filter-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-white border border-slate-200 text-slate-600 hover:bg-slate-50 transition-all whitespace-nowrap">Sinh Học</button>
-            <button onclick="filterLessons('Lịch sử', this)" class="filter-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-white border border-slate-200 text-slate-600 hover:bg-slate-50 transition-all whitespace-nowrap">Lịch Sử</button>
-            <button onclick="filterLessons('Địa lý', this)" class="filter-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-white border border-slate-200 text-slate-600 hover:bg-slate-50 transition-all whitespace-nowrap">Địa Lý</button>
-            <button onclick="filterLessons('GDCD', this)" class="filter-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-white border border-slate-200 text-slate-600 hover:bg-slate-50 transition-all whitespace-nowrap">GDCD</button>
-          </div>
+        <!-- All Subjects Filters (Môn chính + Môn phụ) -->
+        <div class="flex items-center space-x-1.5 overflow-x-auto pb-3 mb-2 custom-scrollbar">
+          <button onclick="filterLessons('ALL', this)" class="filter-btn px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-900 text-white transition-all whitespace-nowrap">Tất cả (9 môn)</button>
+          <button onclick="filterLessons('Toán', this)" class="filter-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-white border border-slate-200 text-slate-600 hover:bg-slate-50 transition-all whitespace-nowrap">📐 Toán</button>
+          <button onclick="filterLessons('Ngữ văn', this)" class="filter-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-white border border-slate-200 text-slate-600 hover:bg-slate-50 transition-all whitespace-nowrap">📖 Ngữ Văn</button>
+          <button onclick="filterLessons('Tiếng Anh', this)" class="filter-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-white border border-slate-200 text-slate-600 hover:bg-slate-50 transition-all whitespace-nowrap">🇬🇧 Tiếng Anh</button>
+          <button onclick="filterLessons('Vật lý', this)" class="filter-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-white border border-slate-200 text-slate-600 hover:bg-slate-50 transition-all whitespace-nowrap">⚡ Vật Lý</button>
+          <button onclick="filterLessons('Hóa học', this)" class="filter-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-white border border-slate-200 text-slate-600 hover:bg-slate-50 transition-all whitespace-nowrap">🧪 Hóa Học</button>
+          <button onclick="filterLessons('Sinh học', this)" class="filter-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-white border border-slate-200 text-slate-600 hover:bg-slate-50 transition-all whitespace-nowrap">🧬 Sinh Học</button>
+          <button onclick="filterLessons('Lịch sử', this)" class="filter-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-white border border-slate-200 text-slate-600 hover:bg-slate-50 transition-all whitespace-nowrap">🏛️ Lịch Sử</button>
+          <button onclick="filterLessons('Địa lý', this)" class="filter-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-white border border-slate-200 text-slate-600 hover:bg-slate-50 transition-all whitespace-nowrap">🌍 Địa Lý</button>
+          <button onclick="filterLessons('GDCD', this)" class="filter-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-white border border-slate-200 text-slate-600 hover:bg-slate-50 transition-all whitespace-nowrap">⚖️ GDCD</button>
         </div>
 
         <!-- CARDS GRID CONTAINER -->
@@ -279,7 +282,7 @@
             <i data-lucide="book-open-check" class="w-7 h-7"></i>
           </div>
           <h3 class="text-base font-bold text-slate-800 mb-1">Chưa có bài học nào ở mục này!</h3>
-          <p class="text-xs text-slate-500 mb-5">Thêm kiến thức mới hoặc chọn "Tất cả" để xem các bài ôn tập có sẵn.</p>
+          <p class="text-xs text-slate-500 mb-5">Thêm kiến thức mới hoặc bấm "Khôi phục đủ 9 môn mặc định" ở trên.</p>
           <button onclick="switchTab('add')" class="px-5 py-2.5 bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold rounded-xl shadow-md transition-all inline-flex items-center space-x-1.5">
             <i data-lucide="plus" class="w-4 h-4"></i>
             <span>Thêm Bài Học Mới</span>
@@ -289,132 +292,11 @@
 
     </div>
 
-    <!-- TAB 2: ADD LESSON FORM -->
-    <div id="tab-add" class="hidden max-w-3xl mx-auto">
-      <div class="glass-card rounded-3xl p-6 sm:p-8 shadow-sm">
-        <div class="flex items-center space-x-3 mb-6 pb-4 border-b border-slate-100">
-          <div class="w-12 h-12 bg-blue-50 text-blue-600 rounded-2xl flex items-center justify-center">
-            <i data-lucide="plus-circle" class="w-6 h-6"></i>
-          </div>
-          <div>
-            <h2 class="text-xl font-bold text-slate-900">Thêm Bài Học Cần Ghi Nhớ</h2>
-            <p class="text-xs text-slate-500">Hỗ trợ đầy đủ tất cả các môn học Lớp 9 (Kết nối tri thức)</p>
-          </div>
-        </div>
-
-        <form id="add-lesson-form" onsubmit="handleAddLesson(event)" class="space-y-5">
-          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-            <div>
-              <label class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2">Chọn Môn Học *</label>
-              <select id="lesson-subject" required class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm bg-white font-semibold">
-                <option value="Toán">Toán Học</option>
-                <option value="Ngữ văn">Ngữ Văn</option>
-                <option value="Tiếng Anh">Tiếng Anh</option>
-                <option value="Vật lý">Vật Lý (KHTN)</option>
-                <option value="Hóa học">Hóa Học (KHTN)</option>
-                <option value="Sinh học">Sinh Học (KHTN)</option>
-                <option value="Lịch sử">Lịch Sử</option>
-                <option value="Địa lý">Địa Lý</option>
-                <option value="GDCD">Giáo Dục Công Dân</option>
-              </select>
-            </div>
-            <div class="sm:col-span-2">
-              <label class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2">Tên Bài Học / Chủ Đề *</label>
-              <input type="text" id="lesson-title" required placeholder="Ví dụ: Hệ thức Vi-ét, Phong trào dân tộc 1918-1930..." class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm bg-white">
-            </div>
-          </div>
-
-          <!-- Sample Quick Fill Buttons -->
-          <div>
-            <label class="block text-xs font-semibold text-slate-500 mb-2">Điền nhanh nội dung mẫu (Môn chính & Môn phụ):</label>
-            <div class="flex flex-wrap gap-2">
-              <button type="button" onclick="loadSampleContent('viet')" class="px-3 py-1.5 bg-slate-100 hover:bg-blue-50 hover:text-blue-600 text-slate-700 rounded-lg text-xs font-medium border border-slate-200 transition-all flex items-center space-x-1">
-                <i data-lucide="zap" class="w-3.5 h-3.5 text-amber-500"></i>
-                <span>Hệ thức Vi-ét (Toán)</span>
-              </button>
-              <button type="button" onclick="loadSampleContent('english')" class="px-3 py-1.5 bg-slate-100 hover:bg-blue-50 hover:text-blue-600 text-slate-700 rounded-lg text-xs font-medium border border-slate-200 transition-all flex items-center space-x-1">
-                <i data-lucide="zap" class="w-3.5 h-3.5 text-amber-500"></i>
-                <span>Từ vựng Unit 1 (Anh)</span>
-              </button>
-              <button type="button" onclick="loadSampleContent('history')" class="px-3 py-1.5 bg-slate-100 hover:bg-blue-50 hover:text-blue-600 text-slate-700 rounded-lg text-xs font-medium border border-slate-200 transition-all flex items-center space-x-1">
-                <i data-lucide="zap" class="w-3.5 h-3.5 text-amber-500"></i>
-                <span>Lịch Sử 1918-1930 (Sử)</span>
-              </button>
-              <button type="button" onclick="loadSampleContent('geography')" class="px-3 py-1.5 bg-slate-100 hover:bg-blue-50 hover:text-blue-600 text-slate-700 rounded-lg text-xs font-medium border border-slate-200 transition-all flex items-center space-x-1">
-                <i data-lucide="zap" class="w-3.5 h-3.5 text-amber-500"></i>
-                <span>Vùng Kinh Tế Trọng Điểm (Địa)</span>
-              </button>
-            </div>
-          </div>
-
-          <!-- Content Input Area -->
-          <div>
-            <label class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2">Nội Dung Ghi Nhớ Chi Tiết *</label>
-            <textarea id="lesson-content" required rows="6" placeholder="Dán nội dung lý thuyết, từ vựng, công thức hoặc các ý chính cần ghi nhớ vào đây..." class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm bg-white leading-relaxed custom-scrollbar"></textarea>
-          </div>
-
-          <!-- Submit Button -->
-          <div class="pt-3 flex items-center justify-end space-x-3">
-            <button type="button" onclick="switchTab('dashboard')" class="px-5 py-2.5 text-slate-600 hover:bg-slate-100 rounded-xl text-sm font-semibold transition-all">
-              Hủy Bỏ
-            </button>
-            <button type="submit" class="px-6 py-3 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white text-sm font-bold rounded-xl shadow-lg shadow-blue-600/25 transition-all flex items-center space-x-2 active:scale-95">
-              <i data-lucide="save" class="w-4 h-4"></i>
-              <span>Lưu & Tính Lịch Chống Quên</span>
-            </button>
-          </div>
-        </form>
-      </div>
-    </div>
-
-    <!-- TAB 3: EBBINGHAUS THEORY & ALGORITHM EXPLANATION -->
-    <div id="tab-theory" class="hidden max-w-4xl mx-auto space-y-6">
-      <div class="glass-card rounded-3xl p-6 sm:p-8 shadow-sm">
-        <div class="flex items-center space-x-3 mb-6 pb-4 border-b border-slate-100">
-          <div class="w-12 h-12 bg-indigo-50 text-indigo-600 rounded-2xl flex items-center justify-center">
-            <i data-lucide="brain" class="w-6 h-6"></i>
-          </div>
-          <div>
-            <h2 class="text-xl font-bold text-slate-900">Cơ Sở Khoa Học & Thuật Toán Ebbinghaus</h2>
-            <p class="text-xs text-slate-500">Đề tài Khoa học Kỹ thuật - Tác giả: Huỳnh Hải Yến</p>
-          </div>
-        </div>
-
-        <div class="space-y-4 text-sm">
-          <div class="bg-blue-50/60 p-4 rounded-2xl border border-blue-100">
-            <h4 class="font-bold text-blue-900 text-base mb-1">1. Định Luật Quên Ebbinghaus (Hermann Ebbinghaus, 1885)</h4>
-            <p class="text-slate-700 leading-relaxed">
-              Tốc độ quên kiến thức của não bộ con người diễn ra theo hàm số mũ suy giảm. Tỷ lệ ghi nhớ còn lại <strong>R</strong> được tính theo công thức toán học:
-            </p>
-            <div class="my-3 p-3 bg-white rounded-xl text-center font-mono font-bold text-blue-700 text-base border border-blue-200">
-              R = e^(-t / S) × 100%
-            </div>
-            <ul class="list-disc list-inside text-xs text-slate-600 space-y-1">
-              <li><strong>R (Retention Rate):</strong> Tỷ lệ kiến thức còn giữ lại được trong trí nhớ (%)</li>
-              <li><strong>t (Time):</strong> Thời gian trôi qua kể từ lần học hoặc ôn gần nhất (tính theo giờ)</li>
-              <li><strong>S (Strength of Memory):</strong> Độ bền của vết trí nhớ (tăng lên sau mỗi lần ôn đạt yêu cầu)</li>
-            </ul>
-          </div>
-
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div class="p-4 bg-slate-50 rounded-2xl border border-slate-200">
-              <h5 class="font-bold text-slate-800 mb-2 flex items-center gap-1.5">
-                <i data-lucide="clock" class="w-4 h-4 text-amber-500"></i> Các Chu Kỳ Ôn Tập Vàng
-              </h5>
-              <ol class="list-decimal list-inside text-xs text-slate-600 space-y-1.5 font-medium">
-                <li>Lần 1: Sau 24 giờ (Khôi phục trí nhớ từ 40% lên 100%)</li>
-                <li>Lần 2: Sau 3 ngày (Độ bền S tăng gấp 3.5 lần)</li>
-                <li>Lần 3: Sau 7 ngày (Trí nhớ đạt trạng thái ổn định)</li>
-                <li>Lần 4: Sau 21 ngày (Chuyển thành Trí Nhớ Dài Hạn bền vững)</li>
-              </ol>
-            </div>
-
-            <div class="p-4 bg-slate-50 rounded-2xl border border-slate-200">
-              <h5 class="font-bold text-slate-800 mb-2 flex items-center gap-1.5">
+    <h5 class="font-bold text-slate-800 mb-2 flex items-center gap-1.5">
                 <i data-lucide="cpu" class="w-4 h-4 text-teal-600"></i> Cơ Chế Đánh Giá Thông Minh
               </h5>
               <p class="text-xs text-slate-600 leading-relaxed">
-                Khi học sinh bấm <strong>"Ôn Tập Với AI"</strong>, hệ thống tự động phân tích nội dung bài học (hoặc kết nối Gemini AI nếu có khóa) để tạo bộ 3 câu hỏi trắc nghiệm kiểm tra hiểu sâu. Nếu đạt ≥ 2/3 câu đúng, độ bền trí nhớ S sẽ tự động tăng lên để giãn khoảng cách ôn tập tiếp theo.
+                Hệ thống tích hợp sẵn kho tóm tắt kiến thức chuẩn chương trình Lớp 9 của cả 9 môn học. Khi bấm <strong>"Ôn Tập AI"</strong>, học sinh làm 3 câu trắc nghiệm kiểm tra hiểu sâu; nếu đạt ≥ 2/3 câu đúng, độ bền trí nhớ S sẽ tự động tăng lên.
               </p>
             </div>
           </div>
@@ -424,65 +306,7 @@
 
   </main>
 
-  <!-- FOOTER -->
-  <footer class="bg-white border-t border-slate-200 py-4 mt-8">
-    <div class="max-w-7xl mx-auto px-4 text-center text-xs text-slate-500">
-      Dự án Khoa học Kỹ thuật: <strong>Hệ thống Ôn tập Chống quên Ebbinghaus Lớp 9</strong> • Tác giả: <span class="font-bold text-indigo-600">Huỳnh Hải Yến</span>
-    </div>
-  </footer>
-
-  <!-- AI QUIZ MODAL -->
-  <div id="quiz-modal" class="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-md flex items-center justify-center p-4 hidden">
-    <div class="bg-white rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl border border-slate-100 flex flex-col justify-between custom-scrollbar">
-
-      <!-- Modal Header -->
-      <div class="p-5 sm:p-6 border-b border-slate-100 flex items-center justify-between sticky top-0 bg-white/95 backdrop-blur-sm z-10">
-        <div class="flex items-center space-x-3">
-          <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-teal-500 to-blue-600 text-white flex items-center justify-center shadow-md">
-            <i data-lucide="sparkles" class="w-5 h-5"></i>
-          </div>
-          <div>
-            <span id="quiz-modal-subject" class="text-xs font-semibold px-2 py-0.5 rounded-md bg-blue-100 text-blue-700">Môn Học</span>
-            <h3 id="quiz-modal-title" class="font-bold text-slate-900 text-base sm:text-lg">Phòng Ôn Tập Thông Minh</h3>
-          </div>
-        </div>
-        <button onclick="closeQuizModal()" class="p-2 text-slate-400 hover:text-slate-600 rounded-full hover:bg-slate-100">
-          <i data-lucide="x" class="w-5 h-5"></i>
-        </button>
-      </div>
-
-      <!-- Modal Body -->
-      <div class="p-5 sm:p-6 space-y-5 flex-1">
-        <!-- Loading State -->
-        <div id="quiz-loading" class="py-10 text-center space-y-3">
-          <div class="inline-block relative">
-            <div class="w-12 h-12 rounded-full border-4 border-blue-200 border-t-blue-600 animate-spin"></div>
-            <i data-lucide="bot" class="w-5 h-5 text-blue-600 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"></i>
-          </div>
-          <p class="text-sm font-semibold text-slate-700">Đang phân tích bài học & tạo bộ câu hỏi trắc nghiệm...</p>
-        </div>
-
-        <!-- Quiz Form Container -->
-        <div id="quiz-container" class="hidden space-y-5">
-          <div class="p-3.5 bg-blue-50/80 border border-blue-100 rounded-2xl flex items-center justify-between text-xs text-blue-800">
-            <span class="flex items-center gap-1.5 font-medium">
-              <i data-lucide="help-circle" class="w-4 h-4 text-blue-600"></i> Trả lời 3 câu hỏi để củng cố vết trí nhớ
-            </span>
-            <span class="font-bold bg-white px-2.5 py-1 rounded-md text-blue-600 shadow-sm">Đạt: ≥ 2/3 câu</span>
-          </div>
-
-          <div id="quiz-questions-list" class="space-y-5"></div>
-        </div>
-
-        <!-- Quiz Result Screen -->
-        <div id="quiz-results" class="hidden text-center space-y-5 py-3">
-          <div id="result-icon-box" class="w-16 h-16 rounded-full mx-auto flex items-center justify-center text-white shadow-xl"></div>
-          <div>
-            <h4 id="result-score-text" class="text-xl font-extrabold text-slate-900">Đạt 3/3 Câu Đúng!</h4>
-            <p id="result-sub-text" class="text-xs sm:text-sm text-slate-500 mt-1">Độ bền trí nhớ đã tăng lên.</p>
-          </div>
-
-          <div id="result-breakdown" class="text-left space-y-2.5 bg-slate-50 p-4 rounded-2xl border border-slate-200 text-xs"></div>
+  <div id="result-breakdown" class="text-left space-y-2.5 bg-slate-50 p-4 rounded-2xl border border-slate-200 text-xs"></div>
         </div>
       </div>
 
@@ -496,106 +320,163 @@
           <span>Nộp Bài & Cập Nhật Trí Nhớ</span>
         </button>
       </div>
-    </div>
-  </div>
-
-  <!-- OPTIONAL API KEY CONFIG MODAL -->
-  <div id="api-modal" class="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-md flex items-center justify-center p-4 hidden">
-    <div class="bg-white rounded-3xl max-w-md w-full p-6 shadow-2xl border border-slate-100 space-y-4">
-      <div class="flex items-center justify-between">
-        <div class="flex items-center space-x-2">
-          <div class="p-2 bg-blue-50 text-blue-600 rounded-xl">
-            <i data-lucide="key" class="w-5 h-5"></i>
-          </div>
-          <h3 class="font-bold text-slate-900 text-base">Cài Đặt Nâng Cao (Không Bắt Buộc)</h3>
-        </div>
-        <button onclick="toggleApiKeyModal()" class="text-slate-400 hover:text-slate-600"><i data-lucide="x" class="w-5 h-5"></i></button>
-      </div>
-
-      <p class="text-xs text-slate-500 leading-relaxed">
-        Ứng dụng <strong>đã tích hợp sẵn bộ tạo câu hỏi thông minh</strong> nên không cần nhập khóa vẫn dùng bình thường. Nếu muốn dùng thêm Gemini API Key riêng, bạn có thể nhập ở dưới:
-      </p>
-
-      <div>
-        <input type="password" id="api-key-input" placeholder="Dán Gemini API Key (tùy chọn)..." class="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-xs focus:ring-2 focus:ring-blue-500 outline-none">
-      </div>
-
-      <div class="flex items-center justify-end space-x-2 pt-2">
-        <button onclick="toggleApiKeyModal()" class="px-4 py-2 text-slate-600 hover:bg-slate-100 rounded-xl text-xs font-semibold">Đóng</button>
-        <button onclick="saveApiKey()" class="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-xl text-xs font-bold shadow-md">Lưu Khóa</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- TOAST NOTIFICATION CONTAINER -->
-  <div id="toast-container" class="fixed bottom-5 right-5 z-50 flex flex-col space-y-2 pointer-events-none"></div>
-
-  <!-- JAVASCRIPT LOGIC -->
-  <script>
-    const STORAGE_KEY = 'ebbinghaus_lessons_v2_yen';
-    const API_KEY_STORAGE = 'ebbinghaus_api_key';
-    let lessons = [];
-    let currentSimulatedHours = 0;
-    let currentActiveLessonId = null;
-    let currentQuizData = null;
-    let ebbinghausChartInstance = null;
-    let currentSubjectFilter = 'ALL';
-
-    // Kho bài học mẫu đa dạng cả môn chính lẫn môn phụ Lớp 9
-    const DEFAULT_SAMPLES = [
+  • Nếu a - b + c = 0 ⇒ x₁ = -1; x₂ = -c/a
+• Tìm hai số biết tổng S và tích P: là nghiệm của phương trình X² - SX + P = 0 (ĐK: S² ≥ 4P).`,
+        createdAt: Date.now() - (16 * 3600 * 1000),
+        lastReviewedAt: Date.now() - (16 * 3600 * 1000),
+        stage: 1,
+        strengthS: 28,
+      },
       {
-        id: 'sample-1',
+        id: 'math-2',
         subject: 'Toán',
-        title: 'Hệ thức Vi-ét và Ứng dụng',
-        content: `Cho phương trình bậc hai ax² + bx + c = 0 (a ≠ 0) có 2 nghiệm x1, x2:
-1. Tổng hai nghiệm: S = x1 + x2 = -b/a
-2. Tích hai nghiệm: P = x1 * x2 = c/a
-Ứng dụng nhẩm nghiệm:
-- Nếu a + b + c = 0 thì x1 = 1, x2 = c/a
-- Nếu a - b + c = 0 thì x1 = -1, x2 = -c/a
-Tìm 2 số khi biết tổng S và tích P: X² - SX + P = 0.`,
-        createdAt: Date.now() - (18 * 3600 * 1000),
-        lastReviewedAt: Date.now() - (18 * 3600 * 1000),
-        stage: 1,
-        strengthS: 28,
-      },
-      {
-        id: 'sample-2',
-        subject: 'Tiếng Anh',
-        title: 'Unit 1: Local Environment - Vocabulary',
-        content: `Từ vựng & Cấu trúc Tiếng Anh 9:
-- Crafts: pottery (đồ gốm), lacquerware (đồ sơn mài), silk (lụa).
-- Phrasal Verbs: pass down (truyền lại cho thế hệ sau), live on (sống dựa vào), deal with (giải quyết), set off (khởi hành).
-- Grammar: Mệnh đề nhượng bộ Although / Even though + S + V.`,
-        createdAt: Date.now() - (45 * 3600 * 1000),
-        lastReviewedAt: Date.now() - (45 * 3600 * 1000),
-        stage: 1,
-        strengthS: 28,
-      },
-      {
-        id: 'sample-3',
-        subject: 'Lịch sử',
-        title: 'Phong trào dân tộc dân chủ (1918 - 1930)',
-        content: `Lịch Sử Việt Nam Lớp 9:
-- Tổ chức Tâm Tâm xã thành lập năm 1923 tại Quảng Châu (Trung Quốc) với tiếng bom Sa Diện của Phạm Hồng Thái (1924).
-- Tháng 6/1925, Nguyễn Ái Quốc thành lập Hội Việt Nam Cách mạng Thanh niên tại Quảng Châu, mở lớp huấn luyện đào tạo cán bộ cách mạng.`,
-        createdAt: Date.now() - (6 * 3600 * 1000),
-        lastReviewedAt: Date.now() - (6 * 3600 * 1000),
+        title: 'Góc ở tâm, Góc nội tiếp & Tứ giác nội tiếp',
+        content: `1. Góc ở tâm: Có đỉnh trùng với tâm đường tròn. Số đo góc ở tâm bằng số đo cung bị chắn.
+2. Góc nội tiếp: Có đỉnh nằm trên đường tròn và hai cạnh chứa hai dây cung.
+• Số đo góc nội tiếp bằng nửa số đo cung bị chắn.
+• Góc nội tiếp chắn nửa đường tròn là góc vuông (90°).
+3. Tứ giác nội tiếp: Là tứ giác có 4 đỉnh nằm trên một đường tròn.
+• Tính chất: Tổng hai góc đối diện bằng 180°.
+• Dấu hiệu nhận biết: Tứ giác có tổng hai góc đối bằng 180°, hoặc có hai đỉnh kề nhau cùng nhìn cạnh chứa hai đỉnh còn lại dưới một góc α bằng nhau.`,
+        createdAt: Date.now() - (4 * 3600 * 1000),
+        lastReviewedAt: Date.now() - (4 * 3600 * 1000),
         stage: 2,
         strengthS: 96,
       },
       {
-        id: 'sample-4',
-        subject: 'Hóa học',
-        title: 'Tính chất hóa học của Kim loại (KHTN 9)',
-        content: `Hóa Học Lớp 9:
-- Kim loại đứng trước H (K, Na, Ca, Mg, Al, Zn, Fe...) tác dụng với HCl, H2SO4 loãng tạo Muối + Khí H2.
-- Đồng (Cu), Bạc (Ag), Vàng (Au) không phản ứng với axit HCl, H2SO4 loãng.
-- Sắt (Fe) tác dụng với HCl tạo muối Sắt(II) clorua (FeCl2).`,
-        createdAt: Date.now() - (12 * 3600 * 1000),
-        lastReviewedAt: Date.now() - (12 * 3600 * 1000),
+        id: 'lit-1',
+        subject: 'Ngữ văn',
+        title: 'Tóm tắt Truyện Kiều & Thơ Trung Đại Lớp 9',
+        content: `1. Chuyện người con gái Nam Xương (Nguyễn Dữ):
+• Vũ Nương: người phụ nữ đẹp người đẹp nết, thủy chung nhưng chịu nỗi oan khuất dẫn đến cái chết bi thảm dưới bến Hoàng Giang.
+• Giá trị nhân đạo: Ca ngợi vẻ đẹp• Metan (CH₄): liên kết đơn, phản ứng đặc trưng là phản ứng thế với Clo (ánh sáng).
+
+  truyền thống của người phụ nữ và lên án xã hội phong kiến trọng nam khinh nữ, chiến tranh phi nghĩa.
+
+2. Truyện Kiều (Nguyễn Du):
+• Gồm 3 phần: Gặp gỡ và đính ước - Gia biến và lưu lạc - Đoàn tụ.
+• Nghệ thuật: Bút pháp tả cảnh ngụ tình bậc thầy, ngôn ngữ điêu luyện, thể thơ lục bát dân tộc đạt tới đỉnh cao.`,
+        createdAt: Date.now() - (32 * 3600 * 1000),
+        lastReviewedAt: Date.now() - (32 * 3600 * 1000),
         stage: 1,
         strengthS: 28,
+      },
+      {
+        id: 'eng-1',
+        subject: 'Tiếng Anh',
+        title: 'Câu điều kiện, Câu ước (Wish) & Câu bị động',
+        content: `1. Câu điều kiện (Conditional Sentences):
+• Loại 1 (Có thật ở hiện tại/tương lai): If + S + V(s/es), S + will/can + V(inf).
+• Loại 2 (Không có thật ở hiện tại): If + S + V2/ed (to be: were), S + would/could + V(inf).
+
+2. Cấu trúc Wish (Ao ước ở hiện tại):
+• S + wish(es) + S + V2/ed (to be: were).
+
+3. Câu bị động (Passive Voice):
+• Công thức chung: S + be + V3/ed + (by O).
+• Hiện tại đơn: am/is/are + V3/ed | Quá khứ đơn: was/were + V3/ed | Tương lai đơn: will be + V3/ed.`,
+        createdAt: Date.now() - (20 * 3600 * 1000),
+        lastReviewedAt: Date.now() - (20 * 3600 * 1000),
+        stage: 1,
+        strengthS: 28,
+      },
+      {
+        id: 'phys-1',
+        subject: 'Vật lý',
+        title: 'Định luật Ôm, Công suất điện & Quang học (KHTN 9)',
+        content: `1. Định luật Ôm: Cường độ dòng điện chạy qua dây dẫn tỉ lệ thuận với hiệu điện thế đặt vào hai đầu dây và tỉ lệ nghịch với điện trở của dây: I = U / R.
+2. Công và Công suất điện:
+• Công suất điện: P = U.I = I².R = U²/R (Đơn vị: Oát - W).
+• Định luật Jun - Len-xơ: Q = I².R.t (Đơn vị: Jun - J).
+3. Quang học (Thấu kính hội tụ & phân kì):
+• Tia tới qua quang tâm O truyền thẳng.
+• Tia tới song song trục chính cho tia ló đi qua tiêu điểm F (hoặc đường kéo dài qua F).`,
+        createdAt: Date.now() - (8 * 3600 * 1000),
+        lastReviewedAt: Date.now() - (8 * 3600 * 1000),
+        stage: 2,
+        strengthS: 96,
+      },
+      {
+        id: 'chem-1',
+        subject: 'Hóa học',
+        title: 'Dãy hoạt động hóa học Kim loại & Hiđrocacbon (KHTN 9)',
+        content: `1. Dãy hoạt động hóa học của kim loại:
+K, Na, Ca, Mg, Al, Zn, Fe, Ni, Sn, Pb, (H), Cu, Hg, Ag, Pt, Au.
+• Ý nghĩa: Kim loại đứng trước H phản ứng với axit (HCl, H₂SO₄ loãng) giải phóng khí H₂. Kim loại đứng trước đẩy kim loại đứng sau ra khỏi dung dịch muối (trừ K, Na, Ca).
+
+2. Hóa hữu cơ cơ bản:
+  • Metan (CH₄): liên kết đơn, phản ứng đặc trưng là phản ứng thế với Clo (ánh sáng).
+• Etilen (C₂H₄): có 1 liên kết đôi, làm mất màu dung dịch Brom (phản ứng cộng).
+• Rượu etylic (C₂H₅OH) tác dụng với Natri giải phóng H₂ và tác dụng với Axit axetic (CH₃COOH) tạo este etyl axetat thơm.`,
+        createdAt: Date.now() - (14 * 3600 * 1000),
+        lastReviewedAt: Date.now() - (14 * 3600 * 1000),
+        stage: 1,
+        strengthS: 28,
+      },
+      {
+        id: 'bio-1',
+        subject: 'Sinh học',
+        title: 'Di truyền học Menđen, ADN & Biến dị (KHTN 9)',
+        content: `1. Quy luật di truyền Menđen:
+• Quy luật phân li: Trong quá trình phát sinh giao tử, mỗi nhân tố di truyền trong cặp nhân tố di truyền phân li về một giao tử và giữ nguyên bản chất.
+• Lai phân tích: Phép lai giữa cá thể mang tính trạng trội cần xác định kiểu gen với cá thể mang tính trạng lặn.
+
+2. Cấu trúc ADN & ARN:
+• ADN cấu tạo theo nguyên tắc đa phân (đơn phân là 4 loại Nu: A, T, G, X) và nguyên tắc bổ sung (A liên kết với T bằng 2 liên kết hiđrô, G liên kết với X bằng 3 liên kết hiđrô).
+• ARN gồm 4 loại đơn phân: A, U, G, X.`,
+        createdAt: Date.now() - (10 * 3600 * 1000),
+        lastReviewedAt: Date.now() - (10 * 3600 * 1000),
+        stage: 2,
+        strengthS: 96,
+      },
+      {
+        id: 'hist-1',
+        subject: 'Lịch sử',
+        title: 'Phong trào dân tộc dân chủ Việt Nam (1918 - 1930)',
+        content: `1. Hoạt động của Nguyễn Ái Quốc (1919 - 1930):
+• Năm 1919: Gửi bản Yêu sách của nhân dân An Nam tới Hội nghị Véc-xai.
+• Tháng 7/1920: Đọc Sơ thảo lần thứ nhất những luận cương về vấn đề dân tộc và vấn đề thuộc địa của Lê-nin, tìm ra con đường cứu nước (cách mạng vô sản).
+• Tháng 6/1925: Thành lập Hội Việt Nam Cách mạng Thanh niên tại Quảng Châu (Trung Quốc).
+• Đầu năm 1930: Chủ trì Hội nghị hợp nhất các tổ chức cộng sản, thành lập Đảng Cộng sản Việt Nam.
+
+2. Các tổ chức yêu nước khác: Tâm Tâm xã (1923) với tiếng bom Sa Diện của Phạm Hồng Thái; Việt Nam Quốc dân đảng (1927) do Nguyễn Thái Học đứng đầu.`,
+        createdAt: Date.now() - (5 * 3600 * 1000),
+        lastReviewedAt: Date.now() - (5 * 3600 * 1000),
+        stage: 2,
+        strengthS: 96,
+      },
+      {
+        id: 'geo-1',
+        subject: 'Địa lý',
+        title: 'Các vùng kinh tế & Khu công nghệ cao Việt Nam',
+        content: `1. Chuyển dịch cơ cấu kinh tế:
+• Giảm tỉ trọng khu vực Nông - Lâm - Ngư nghiệp; tăng tỉ trọng Công nghiệp - Xây dựng và Dịch vụ.
+
+  2. Các vùng kinh tế trọng điểm & Khu công nghệ cao:
+• Vùng kinh tế trọng điểm Bắc Bộ (Hà Nội, Hải Phòng, Quảng Ninh...), Miền Trung (Đà Nẵng, Thừa Thiên Huế...), Phía Nam (TP.HCM, Bình Dương, Đồng Nai...) và Vùng ĐBSCL.
+• Các khu công nghệ cao lớn: Khu CNC Hòa Lạc (Hà Nội), Khu CNC Đà Nẵng (Hòa Vang), Khu CNC TP. Hồ Chí Minh (TP. Thủ Đức).
+
+3. Đồng bằng sông Cửu Long: Vùng trọng điểm sản xuất lương thực, thực phẩm và thủy sản lớn nhất cả nước.`,
+        createdAt: Date.now() - (11 * 3600 * 1000),
+        lastReviewedAt: Date.now() - (11 * 3600 * 1000),
+        stage: 1,
+        strengthS: 28,
+      },
+      {
+        id: 'gdcd-1',
+        subject: 'GDCD',
+        title: 'Lí tưởng sống của thanh niên & Quyền tự do kinh doanh',
+        content: `1. Lí tưởng sống của thanh niên:
+• Là cái đích của cuộc sống mà mỗi người khát khao muốn đạt được.
+• Thanh niên học sinh lớp 9 cần ra sức học tập, rèn luyện đạo đức, làm chủ khoa học công nghệ để góp phần xây dựng đất nước giàu mạnh.
+
+2. Quyền tự do kinh doanh và nghĩa vụ đóng thuế:
+• Công dân có quyền tự do lựa chọn hình thức tổ chức kinh doanh, ngành nghề và quy mô theo quy định pháp luật.
+• Nghĩa vụ: Kê khai trung thực, nộp thuế đầy đủ và đúng hạn để ổn định thị trường và phát triển phúc lợi xã hội.`,
+        createdAt: Date.now() - (3 * 3600 * 1000),
+        lastReviewedAt: Date.now() - (3 * 3600 * 1000),
+        stage: 2,
+        strengthS: 96,
       }
     ];
 
@@ -610,12 +491,13 @@ Tìm 2 số khi biết tổng S và tích P: X² - SX + P = 0.`,
       const stored = localStorage.getItem(STORAGE_KEY);
       if (stored) {
         try {
-          lessons = JSON.parse(stored);
+          const parsed = JSON.parse(stored);
+          lessons = parsed.length > 0 ? parsed : ALL_SUBJECTS_CURRICULUM;
         } catch(e) {
-          lessons = DEFAULT_SAMPLES;
+          lessons = ALL_SUBJECTS_CURRICULUM;
         }
       } else {
-        lessons = DEFAULT_SAMPLES;
+        lessons = ALL_SUBJECTS_CURRICULUM;
         saveLessons();
       }
     }
@@ -624,10 +506,19 @@ Tìm 2 số khi biết tổng S và tích P: X² - SX + P = 0.`,
       localStorage.setItem(STORAGE_KEY, JSON.stringify(lessons));
     }
 
+    function restoreDefaultLibrary() {
+      if (confirm('Khôi phục lại toàn bộ kho tóm tắt kiến thức chuẩn của 9 môn học Lớp 9?')) {
+        lessons = JSON.parse(JSON.stringify(ALL_SUBJECTS_CURRICULUM));
+        saveLessons();
+        renderDashboard();
+        showToast('Đã khôi phục kho kiến thức đủ 9 môn Lớp 9!', 'success');
+      }
+    }
+
     function calculateRetention(lesson) {
       const now = Date.now() + (currentSimulatedHours * 3600 * 1000);
       const hoursElapsed = Math.max(0, (now - lesson.lastReviewedAt) / (1000 * 3600));
-      const S = lesson.strengthS || 28;
+  const S = lesson.strengthS || 28;
       const retention = Math.exp(-hoursElapsed / S) * 100;
       return Math.min(100, Math.max(1, Math.round(retention)));
     }
@@ -689,7 +580,7 @@ Tìm 2 số khi biết tổng S và tích P: X² - SX + P = 0.`,
       let urgentCount = 0;
       let masteredCount = 0;
 
-      lessons.forEach(lesson => {
+  lessons.forEach(lesson => {
         const retention = calculateRetention(lesson);
         totalRetentionSum += retention;
         if (retention < 40) urgentCount++;
@@ -723,7 +614,7 @@ Tìm 2 số khi biết tổng S và tích P: X² - SX + P = 0.`,
               </span>
             </div>
 
-            <h3 class="font-bold text-slate-900 text-base mb-1 line-clamp-1 group-hover:text-blue-600 transition-colors">${escapeHtml(lesson.title)}</h3>
+            <h3 class="font-bold text-slate-900 text-base mb-1.5 line-clamp-1 group-hover:text-blue-600 transition-colors">${escapeHtml(lesson.title)}</h3>
             <p class="text-xs text-slate-500 line-clamp-2 mb-4 leading-relaxed">${escapeHtml(lesson.content)}</p>
 
             <div class="space-y-1.5 mb-4 bg-slate-50 p-3 rounded-xl border border-slate-100">
@@ -731,8 +622,8 @@ Tìm 2 số khi biết tổng S và tích P: X² - SX + P = 0.`,
                 <span class="text-slate-500 font-medium">Trí nhớ còn lại (R):</span>
                 <span class="font-bold text-slate-900 font-mono">${retention}%</span>
               </div>
-              <div class="w-full bg-slate-200 rounded-full h-2.5 overflow-hidden">
-                <div class="h-2.5 rounded-full transition-all duration-500 ${retention < 40 ? 'bg-rose-500' : retention < 70 ? 'bg-amber-500' : 'bg-emerald-500'}" style="width: ${retention}%"></div>
+              <div class="w-full bg-slate-200 rounded-full h-2 overflow-hidden">
+                <div class="h-2 rounded-full transition-all duration-500 ${retention < 40 ? 'bg-rose-500' : retention < 70 ? 'bg-amber-500' : 'bg-emerald-500'}" style="width: ${retention}%"></div>
               </div>
               <div class="flex items-center justify-between text-[10px] text-slate-400 pt-1">
                 <span>Chu kỳ: ${stageText}</span>
@@ -741,10 +632,14 @@ Tìm 2 số khi biết tổng S và tích P: X² - SX + P = 0.`,
             </div>
           </div>
 
-          <div class="pt-3 border-t border-slate-100 flex items-center justify-between gap-2">
-            <button onclick="openQuizModal('${lesson.id}')" class="flex-1 py-2 px-3 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white rounded-xl text-xs font-bold shadow-sm transition-all flex items-center justify-center space-x-1.5 active:scale-95">
+          <div class="pt-3 border-t border-slate-100 flex items-center justify-between gap-1.5">
+            <button onclick="openSummaryModal('${lesson.id}')" class="py-2 px-2.5 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-xl text-xs font-bold transition-all flex items-center justify-center space-x-1" title="Đọc toàn bộ tóm tắt kiến thức">
+              <i data-lucide="file-text" class="w-3.5 h-3.5 text-blue-600"></i>
+              <span>Tóm Tắt</span>
+            </button>
+            <button onclick="openQuizModal('${lesson.id}')" class="flex-1 py-2 px-2.5 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white rounded-xl text-xs font-bold shadow-sm transition-all flex items-center justify-center space-x-1 active:scale-95">
               <i data-lucide="brain-circuit" class="w-3.5 h-3.5"></i>
-              <span>Ôn Tập Với AI</span>
+              <span>Ôn Tập AI</span>
             </button>
             <button onclick="deleteLesson('${lesson.id}')" class="p-2 text-slate-400 hover:text-rose-600 hover:bg-rose-50 rounded-lg transition-all" title="Xóa bài học">
               <i data-lucide="trash-2" class="w-4 h-4"></i>
@@ -755,6 +650,29 @@ Tìm 2 số khi biết tổng S và tích P: X² - SX + P = 0.`,
       });
 
       lucide.createIcons();
+    }
+
+    // --- XEM TÓM TẮT CHI TIẾT ---
+    function openSummaryModal(lessonId) {
+      const lesson = lessons.find(l => l.id === lessonId);
+      if (!lesson) return;
+
+      document.getElementById('summary-modal-subject').innerText = lesson.subject;
+      document.getElementById('summary-modal-title').innerText = lesson.title;
+      document.getElementById('summary-modal-content').innerText = lesson.content;
+      
+      const quizBtn = document.getElementById('btn-summary-to-quiz');
+      quizBtn.onclick = () => {
+        closeSummaryModal();
+        openQuizModal(lesson.id);
+      };
+
+      document.getElementById('summary-modal').classList.remove('hidden');
+      lucide.createIcons();
+    }
+
+          function closeSummaryModal() {
+      document.getElementById('summary-modal').classList.add('hidden');
     }
 
     function simulateTimePassing(hours) {
@@ -790,7 +708,7 @@ Tìm 2 số khi biết tổng S và tích P: X² - SX + P = 0.`,
         strengthS: 28
       };
 
-      lessons.unshift(newLesson);
+          lessons.unshift(newLesson);
       saveLessons();
       renderDashboard();
 
@@ -808,36 +726,6 @@ Tìm 2 số khi biết tổng S và tích P: X² - SX + P = 0.`,
       }
     }
 
-    function loadSampleContent(type) {
-      if (type === 'viet') {
-        document.getElementById('lesson-subject').value = 'Toán';
-        document.getElementById('lesson-title').value = 'Hệ thức Vi-ét và Ứng dụng';
-        document.getElementById('lesson-content').value = `Cho phương trình bậc hai ax² + bx + c = 0 (a ≠ 0) có 2 nghiệm x1, x2:
-- Tổng hai nghiệm: S = x1 + x2 = -b/a
-- Tích hai nghiệm: P = x1 * x2 = c/a
-- Nếu a + b + c = 0 thì x1 = 1, x2 = c/a. Nếu a - b + c = 0 thì x1 = -1, x2 = -c/a.`;
-      } else if (type === 'english') {
-        document.getElementById('lesson-subject').value = 'Tiếng Anh';
-        document.getElementById('lesson-title').value = 'Unit 1: Local Environment';
-        document.getElementById('lesson-content').value = `Từ vựng & Ngữ pháp Tiếng Anh 9:
-- Craft village: làng nghề thủ công | Pottery: đồ gốm | Lacquerware: đồ sơn mài
-- Pass down: truyền lại | Live on: sống dựa vào | Set off: khởi hành
-- Mệnh đề nhượng bộ: Although / Even though + S + V.`;
-      } else if (type === 'history') {
-        document.getElementById('lesson-subject').value = 'Lịch sử';
-        document.getElementById('lesson-title').value = 'Phong trào dân tộc dân chủ 1918 - 1930';
-        document.getElementById('lesson-content').value = `Lịch Sử 9:
-- Năm 1923, tổ chức Tâm Tâm xã được thành lập tại Quảng Châu. Tháng 6/1924, Phạm Hồng Thái thực hiện tiếng bom Sa Diện.
-- Tháng 6/1925, Nguyễn Ái Quốc sáng lập Hội Việt Nam Cách mạng Thanh niên, xuất bản báo Thanh Niên.`;
-      } else if (type === 'geography') {
-        document.getElementById('lesson-subject').value = 'Địa lý';
-        document.getElementById('lesson-title').value = 'Các vùng kinh tế trọng điểm & Khu công nghệ cao';
-        document.getElementById('lesson-content').value = `Địa Lý 9:
-- Các khu công nghệ cao tiêu biểu ở Việt Nam: Khu công nghệ cao Hòa Lạc (Hà Nội), Khu công nghệ cao Đà Nẵng (Hòa Vang), Khu công nghệ cao TP. Hồ Chí Minh (TP. Thủ Đức).
-- Có vai trò thúc đẩy nghiên cứu khoa học và chuyển giao công nghệ hiện đại.`;
-      }
-    }
-
     async function openQuizModal(lessonId) {
       currentActiveLessonId = lessonId;
       const lesson = lessons.find(l => l.id === lessonId);
@@ -852,14 +740,14 @@ Tìm 2 số khi biết tổng S và tích P: X² - SX + P = 0.`,
       document.getElementById('quiz-results').classList.add('hidden');
       document.getElementById('btn-quiz-submit').classList.add('hidden');
 
-      currentQuizData = await generateQuizWithAI(lesson);
+          currentQuizData = await generateQuizWithAI(lesson);
 
       setTimeout(() => {
         renderQuizQuestions(currentQuizData);
         document.getElementById('quiz-loading').classList.add('hidden');
         document.getElementById('quiz-container').classList.remove('hidden');
         document.getElementById('btn-quiz-submit').classList.remove('hidden');
-      }, 500);
+      }, 450);
     }
 
     function closeQuizModal() {
@@ -890,98 +778,204 @@ Tìm 2 số khi biết tổng S và tích P: X² - SX + P = 0.`,
         }
       }
 
-      return generateOfflineQuiz(lesson);
+          return generateOfflineQuiz(lesson);
     }
 
+    // BỘ TẠO TRẮC NGHIỆM THÔNG MINH CHO TẤT CẢ 9 MÔN LỚP 9
     function generateOfflineQuiz(lesson) {
-      if (lesson.subject === 'Toán') {
-        return [
-          {
-            question: "Trong phương trình bậc hai ax² + bx + c = 0 (a ≠ 0), tổng hai nghiệm S (x1 + x2) được tính theo công thức nào?",
-            options: ["A. S = -b / a", "B. S = c / a", "C. S = -c / a", "D. S = b / a"],
-            answer: 0,
-            explanation: "Theo hệ thức Vi-ét, tổng hai nghiệm luôn bằng -b/a."
-          },
-          {
-            question: "Nếu phương trình bậc hai thỏa mãn điều kiện a + b + c = 0 thì nghiệm của phương trình là gì?",
-            options: ["A. x1 = 1 và x2 = c/a", "B. x1 = -1 và x2 = -c/a", "C. x1 = 0 và x2 = c/a", "D. Phương trình vô nghiệm"],
-            answer: 0,
-            explanation: "Nếu a + b + c = 0 thì phương trình có nghiệm x1 = 1 và x2 = c/a."
-          },
-          {
-            question: "Hai số có tổng là S và tích là P là nghiệm của phương trình nào sau đây?",
-            options: ["A. X² - SX + P = 0", "B. X² + SX + P = 0", "C. X² - PX + S = 0", "D. X² + SX - P = 0"],
-            answer: 0,
-            explanation: "Hai số có tổng S và tích P là nghiệm của phương trình X² - SX + P = 0 (với S² ≥ 4P)."
-          }
-        ];
-      } else if (lesson.subject === 'Tiếng Anh') {
-        return [
-          {
-            question: "Cụm động từ (Phrasal verb) nào mang nghĩa là 'truyền lại cho thế hệ sau'?",
-            options: ["A. pass down", "B. live on", "C. set off", "D. deal with"],
-            answer: 0,
-            explanation: "'Pass down' có nghĩa là truyền lại nghề truyền thống hoặc kiến thức cho thế hệ sau."
-          },
-          {
-            question: "Liên từ 'Although / Even though' đứng trước cấu trúc ngữ pháp nào?",
-            options: ["A. Một mệnh đề (S + V)", "B. Cụm danh từ (Noun Phrase)", "C. Động từ thêm -ing", "D. Động từ nguyên mẫu có To"],
-            answer: 0,
-            explanation: "Although / Even though + S + V dùng để diễn tả sự tương phản, nhượng bộ."
-          },
-          {
-            question: "Từ 'pottery' chỉ sản phẩm làng nghề truyền thống nào?",
-            options: ["A. Đồ gốm", "B. Đồ sơn mài", "C. Lụa tơ tằm", "D. Điêu khắc đá"],
-            answer: 0,
-            explanation: "Pottery nghĩa là đồ gốm sứ thủ công."
-          }
-        ];
-      } else if (lesson.subject === 'Lịch sử') {
-        return [
-          {
-            question: "Tổ chức Tâm Tâm xã được thành lập vào năm 1923 ở đâu?",
-            options: ["A. Quảng Châu (Trung Quốc)", "B. Hà Nội (Việt Nam)", "C. Pa-ri (Pháp)", "D. Băng Cốc (Thái Lan)"],
-            answer: 0,
-            explanation: "Tâm Tâm xã do một số thanh niên Việt Nam yêu nước thành lập tại Quảng Châu (Trung Quốc) năm 1923."
-          },
-          {
-            question: "Ai là người thực hiện tiếng bom Sa Diện (6/1924) gây tiếng vang lớn?",
-            options: ["A. Phạm Hồng Thái", "B. Phan Bội Châu", "C. Phan Châu Trinh", "D. Nguyễn Thái Học"],
-            answer: 0,
-            explanation: "Tiếng bom Sa Diện của liệt sĩ Phạm Hồng Thái đã thức tỉnh tinh thần yêu nước của nhân dân."
-          },
-          {
-            question: "Tháng 6/1925, Nguyễn Ái Quốc đã thành lập tổ chức tiền thân nào của Đảng?",
-            options: ["A. Hội Việt Nam Cách mạng Thanh niên", "B. Việt Nam Quốc dân đảng", "C. Tân Việt Cách mạng đảng", "D. Đông Dương Cộng sản đảng"],
-            answer: 0,
-            explanation: "Hội Việt Nam Cách mạng Thanh niên được Nguyễn Ái Quốc thành lập tháng 6/1925 tại Quảng Châu."
-          }
-        ];
-      } else {
-        return [
-          {
-            question: `Mục tiêu cốt lõi khi ôn tập chủ đề "${lesson.title}" (${lesson.subject}) là gì?`,
-            options: ["A. Hiểu rõ bản chất kiến thức, quy luật và vận dụng chính xác", "B. Học vẹt không cần hiểu ý nghĩa", "C. Bỏ qua các ví dụ thực tế", "D. Chỉ học 1 lần duy nhất trước ngày thi"],
-            answer: 0,
-            explanation: "Nắm vững bản chất lý thuyết giúp giải quyết tốt cả câu hỏi nhận biết lẫn vận dụng."
-          },
-          {
-            question: "Theo đường cong quên Ebbinghaus, sau 24 giờ không ôn tập, trí nhớ giảm xuống còn khoảng bao nhiêu?",
-            options: ["A. Khoảng 40% - 45%", "B. Vẫn giữ nguyên 100%", "C. Giảm về 0% ngay lập tức", "D. Tăng lên 120%"],
-            answer: 0,
-            explanation: "Sau 24 giờ đầu tiên, não bộ đào thải khoảng 55-60% thông tin nếu không được nhắc lại."
-          },
-          {
-            question: "Việc ôn tập ngắt quãng đúng các mốc vàng (24h, 3 ngày, 7 ngày, 21 ngày) có tác dụng gì?",
-            options: ["A. Tăng độ bền trí nhớ S và chuyển kiến thức vào trí nhớ dài hạn", "B. Làm tốn thời gian học tập hơn", "C. Chỉ áp dụng được cho môn Toán", "D. Không làm thay đổi khả năng ghi nhớ"],
-            answer: 0,
-            explanation: "Mỗi lần ôn tập thành công giúp nâng cao hệ số bền vững S, giúp nhớ kiến thức lâu hơn."
-          }
-        ];
+      switch (lesson.subject) {
+        case 'Toán':
+          return [
+            {
+              question: "Trong phương trình bậc hai ax² + bx + c = 0 (a ≠ 0), tổng hai nghiệm S (x₁ + x₂) bằng bao nhiêu?",
+              options: ["A. -b / a", "B. c / a", "C. -c / a", "D. b / a"],
+              answer: 0,
+              explanation: "Theo hệ thức Vi-ét, tổng hai nghiệm S = -b/a và tích P = c/a."
+            },
+            {
+              question: "Góc nội tiếp chắn nửa đường tròn có số đo bằng bao nhiêu độ?",
+              options: ["A. 90°", "B. 180°", "C. 60°", "D. 45°"],
+              answer: 0,
+              explanation: "Góc nội tiếp chắn nửa đường tròn (cung 180°) có số đo bằng nửa cung bị chắn nên bằng 90°."
+            },
+            {
+              question: "Tổng hai góc đối diện của một tứ giác nội tiếp đường tròn luôn bằng:",
+              options: ["A. 180°", "B. 90°", "C. 360°", "D. 120°"],
+              answer: 0,
+              explanation: "Trong một tứ giác nội tiếp, tổng số đo hai góc đối diện nhau bằng 180°."
+            }
+          ];
+        case 'Ngữ văn':
+          return [
+            {
+              question: "Tác phẩm 'Chuyện người con gái Nam Xương' do ai sáng tác?",
+              options: ["A. Nguyễn Dữ", "B. Nguyễn Du", "C. Nguyễn Đình Chiểu", "D. Lê Thánh Tông"],
+              answer: 0,
+              explanation: "Tác phẩm trích từ 'Truyền kì mạn lục' của danh sĩ Nguyễn Dữ thế kỉ XVI."
+            },
+            {
+              question: "Kiệt tác 'Truyện Kiều' của đại thi hào Nguyễn Du được viết theo thể thơ nào?",
+              options: ["A. Lục bát", "B. Song thất lục bát", "C. Thất ngôn bát cú", "D. Tự do"],
+              answer: 0,
+              explanation: "Truyện Kiều gồm 3254 câu thơ lục bát đạt đến đỉnh cao nghệ thuật ngôn từ dân tộc."
+            },
+            {
+              question: "Chi tiết nào là nguyên nhân trực tiếp gây nên nỗi oan khuất của nhân vật Vũ Nương?",
+              options: ["A. Lời nói ngây thơ của bé Đản về chiếc bóng trên tường", "B. Sự gièm pha của hàng xóm", "C. Mẹ chồng ghét bỏ", "D. Thư từ bị thất lạc"],
+              answer: 0,
+              explanation: "Chiếc bóng trên tường và lời nói ngây thơ của bé Đản khiến Trương Sinh nghi oan cho vợ."
+            }
+          ];
+        case 'Tiếng Anh':
+          return [
+            {
+          question: "Cấu trúc câu ước (Wish) diễn tả mong muốn không có thật ở hiện tại là gì?",
+              options: ["A. S + wish(es) + S + V2/ed (were)", "B. S + wish(es) + S + will + V", "C. S + wish(es) + S + V(s/es)", "D. S + wish(es) + to V"],
+              answer: 0,
+              explanation: "Câu ước ở hiện tại lùi về thì quá khứ đơn (V2/ed, to be dùng were cho mọi ngôi)."
+            },
+            {
+              question: "Trong câu điều kiện loại 1 (If + S + V(s/es)), mệnh đề chính dùng cấu trúc nào?",
+              options: ["A. S + will/can + V(inf)", "B. S + would + V(inf)", "C. S + had + V3/ed", "D. S + V2/ed"],
+              answer: 0,
+              explanation: "Câu điều kiện loại 1 diễn tả sự việc có thể xảy ra ở hiện tại/tương lai: If + hiện tại đơn, S + will + V nguyên mẫu."
+            },
+            {
+              question: "Công thức chung của câu bị động (Passive Voice) trong Tiếng Anh là gì?",
+              options: ["A. S + be + V3/ed + (by O)", "B. S + have + V-ing", "C. S + do/does + V(inf)", "D. S + be + V-ing"],
+              answer: 0,
+              explanation: "Câu bị động luôn có dạng động từ 'to be' chia theo thì kết hợp với phân từ hai (V3/ed)."
+            }
+          ];
+        case 'Vật lý':
+          return [
+            {
+              question: "Công thức biểu thị đúng Định luật Ôm cho đoạn mạch là gì?",
+              options: ["A. I = U / R", "B. I = U . R", "C. U = I / R", "D. R = U . I"],
+              answer: 0,
+              explanation: "Cường độ dòng điện I tỉ lệ thuận với hiệu điện thế U và tỉ lệ nghịch với điện trở R: I = U/R."
+            },
+            {
+              question: "Nhiệt lượng tỏa ra trên dây dẫn theo định luật Jun - Len-xơ được tính bằng công thức nào?",
+              options: ["A. Q = I² . R . t", "B. Q = U . I", "C. Q = I . R² . t", "D. Q = U / R"],
+              answer: 0,
+              explanation: "Định luật Jun - Len-xơ: Q = I².R.t (tính bằng Jun)."
+            },
+            {
+              question: "Tia tới đi qua quang tâm O của thấu kính hội tụ sẽ cho tia ló như thế nào?",
+              options: ["A. Tiếp tục truyền thẳng theo phương của tia tới", "B. Đi qua tiêu điểm F", "C. Song song với trục chính", "D. Phản xạ ngược trở lại"],
+              answer: 0,
+              explanation: "Mọi tia sáng đi qua quang tâm O của thấu kính đều truyền thẳng không đổi hướng."
+            }
+          ];
+        case 'Hóa học':
+          return [
+            {
+              question: "Kim loại nào sau đây KHÔNG phản ứng được với dung dịch axit HCl loãng?",
+          options: ["A. Đồng (Cu)", "B. Sắt (Fe)", "C. Kẽm (Zn)", "D. Magie (Mg)"],
+              answer: 0,
+              explanation: "Đồng (Cu) đứng sau Hiđro trong dãy hoạt động hóa học nên không tác dụng với HCl loãng."
+            },
+            {
+              question: "Khí Hiđrocacbon nào làm mất màu dung dịch Brom ở điều kiện thường?",
+              options: ["A. Etilen (C₂H₄)", "B. Metan (CH₄)", "C. Khí Cacbonic (CO₂)", "D. Khí Nitơ (N₂)"],
+              answer: 0,
+              explanation: "Etilen có chứa 1 liên kết đôi kém bền nên tham gia phản ứng cộng làm mất màu dung dịch Brom."
+            },
+            {
+              question: "Khi cho Sắt (Fe) tác dụng với dung dịch HCl thu được muối nào?",
+              options: ["A. FeCl₂", "B. FeCl₃", "C. Fe₂(SO₄)₃", "D. FeO"],
+              answer: 0,
+              explanation: "Fe phản ứng với HCl chỉ tạo ra muối Sắt(II) clorua (FeCl₂) và giải phóng khí H₂."
+            }
+          ];
+          case 'Sinh học':
+          return [
+            {
+              question: "Theo nguyên tắc bổ sung trong phân tử ADN, Ađênin (A) luôn liên kết với loại Nu nào?",
+              options: ["A. Timin (T)", "B. Guanin (G)", "C. Xitôzin (X)", "D. Uraxin (U)"],
+              answer: 0,
+              explanation: "Trong ADN, A liên kết với T bằng 2 liên kết hiđrô; G liên kết với X bằng 3 liên kết hiđrô."
+            },
+            {
+              question: "Mục đích của phép lai phân tích trong di truyền học Menđen là gì?",
+              options: ["A. Xác định kiểu gen của cá thể mang tính trạng trội", "B. Tạo ra giống cây trồng mới", "C. Xác định tính trạng lặn", "D. Nhân bản vô tính"],
+              answer: 0,
+              explanation: "Lai phân tích giúp kiểm tra cá thể mang tính trạng trội là đồng hợp (AA) hay dị hợp (Aa)."
+            },
+            {
+              question: "Phân tử ARN được cấu tạo từ 4 loại đơn phân nào?",
+              options: ["A. A, U, G, X", "B. A, T, G, X", "C. A, T, U, G", "D. T, U, G, X"],
+              answer: 0,
+              explanation: "ARN không có Timin (T) mà thay bằng Uraxin (U), gồm 4 loại đơn phân A, U, G, X."
+            }
+          ];
+        case 'Lịch sử':
+          return [
+            {
+              question: "Nguyễn Ái Quốc tìm thấy con đường cứu nước đúng đắn cho dân tộc Việt Nam vào năm nào?",
+              options: ["A. Năm 1920", "B. Năm 1911", "C. Năm 1925", "D. Năm 1930"],
+              answer: 0,
+              explanation: "Tháng 7/1920, khi đọc Luận cương của Lê-nin, Người xác định con đường cách mạng vô sản."
+            },
+            {
+              question: "Tổ chức tiền thân của Đảng Cộng sản Việt Nam do Nguyễn Ái Quốc thành lập tháng 6/1925 là:",
+              options: ["A. Hội Việt Nam Cách mạng Thanh niên", "B. Tâm Tâm xã", "C. Việt Nam Quốc dân đảng", "D. Tân Việt Cách mạng đảng"],
+              answer: 0,
+              explanation: "Hội Việt Nam Cách mạng Thanh niên thành lập tại Quảng Châu (Trung Quốc) tháng 6/1925."
+            },
+            {
+              question: "Đảng Cộng sản Việt Nam được thành lập vào thời gian nào?",
+              options: ["A. Đầu năm 1930", "B. Tháng 8/1945", "C. Tháng 5/1954", "D. Tháng 9/1945"],
+              answer: 0,
+              explanation: "Hội nghị hợp nhất các tổ chức cộng sản đầu năm 1930 đã thành lập Đảng Cộng sản Việt Nam."
+            }
+          ];
+          case 'Địa lý':
+          return [
+            {
+              question: "Khu công nghệ cao Hòa Lạc thuộc tỉnh/thành phố nào của nước ta?",
+              options: ["A. Hà Nội", "B. Đà Nẵng", "C. TP. Hồ Chí Minh", "D. Hải Phòng"],
+              answer: 0,
+              explanation: "Khu công nghệ cao Hòa Lạc nằm ở phía Tây thủ đô Hà Nội (huyện Thạch Thất)."
+            },
+            {
+              question: "Vùng nào là vựa lúa và vùng sản xuất thủy sản lớn nhất cả nước?",
+              options: ["A. Đồng bằng sông Cửu Long", "B. Đồng bằng sông Hồng", "C. Đông Nam Bộ", "D. Tây Nguyên"],
+              answer: 0,
+              explanation: "Đồng bằng sông Cửu Long chiếm hơn 50% sản lượng lúa và thủy sản của cả nước."
+            },
+            {
+              question: "Xu hướng chuyển dịch cơ cấu kinh tế theo ngành ở nước ta hiện nay là gì?",
+              options: ["A. Giảm tỉ trọng Nông-Lâm-Ngư nghiệp, tăng tỉ trọng Công nghiệp và Dịch vụ", "B. Tăng tỉ trọng Nông nghiệp", "C. Giảm tỉ trọng Dịch vụ", "D. Không thay đổi"],
+              answer: 0,
+              explanation: "Quá trình công nghiệp hóa thúc đẩy tỉ trọng công nghiệp - xây dựng và dịch vụ tăng lên."
+            }
+          ];
+        default: // GDCD & Các môn khác
+          return [
+            {
+              question: "Lí tưởng sống cao đẹp của thanh niên học sinh hiện nay là gì?",
+              options: ["A. Ra sức học tập, rèn luyện đạo đức và làm chủ khoa học công nghệ", "B. Chỉ lo hưởng thụ cá nhân", "C. Sống ỷ lại vào gia đình", "D. Bỏ qua các hoạt động tập thể"],
+              answer: 0,
+              explanation: "Thanh niên cần có khát vọng vươn lên, học tập tốt để cống hiến cho gia đình và đất nước."
+            },
+            {
+              question: "Công dân thực hiện quyền tự do kinh doanh phải đi đôi với nghĩa vụ nào?",
+              options: ["A. Kê khai trung thực và đóng thuế đầy đủ theo quy định", "B. Tự ý kinh doanh hàng cấm", "C. Trốn thuế để tăng lợi nhuận", "D. Không cần đăng ký kinh doanh"],
+              answer: 0,
+              explanation: "Kinh doanh đúng pháp luật và nộp thuế đầy đủ là nghĩa vụ bắt buộc của công dân."
+            },
+            {
+              question: "Theo biểu đồ quên Ebbinghaus, việc ôn tập lại kiến thức sau 24 giờ giúp ích gì?",
+              options: ["A. Khôi phục trí nhớ lên 100% và kéo dài thời gian ghi nhớ", "B. Làm lãng phí thời gian", "C. Khiến não bộ nhanh quên hơn", "D. Không có tác dụng gì"],
+              answer: 0,
+          explanation: "Ôn tập đúng điểm rơi 24h giúp củng cố liên kết thần kinh, chống lại sự đào thải tự nhiên."
+            }
+          ];
       }
     }
-
-    function renderQuizQuestions(quizData) {
+          function renderQuizQuestions(quizData) {
       const container = document.getElementById('quiz-questions-list');
       container.innerHTML = '';
 
@@ -1029,7 +1023,7 @@ Tìm 2 số khi biết tổng S và tích P: X² - SX + P = 0.`,
         });
       });
 
-      const lesson = lessons.find(l => l.id === currentActiveLessonId);
+          const lesson = lessons.find(l => l.id === currentActiveLessonId);
       if (lesson) {
         lesson.lastReviewedAt = Date.now() + (currentSimulatedHours * 3600 * 1000);
         
@@ -1057,7 +1051,7 @@ Tìm 2 số khi biết tổng S và tích P: X² - SX + P = 0.`,
       const scoreText = document.getElementById('result-score-text');
       const subText = document.getElementById('result-sub-text');
 
-    if (score >= 2) {
+      if (score >= 2) {
         iconBox.className = 'w-16 h-16 rounded-full mx-auto flex items-center justify-center text-white shadow-xl bg-gradient-to-tr from-emerald-500 to-teal-500';
         iconBox.innerHTML = '<i data-lucide="check-circle" class="w-9 h-9"></i>';
         scoreText.innerText = `Xuất Sắc! Đạt ${score}/3 Câu Đúng`;
@@ -1080,10 +1074,10 @@ Tìm 2 số khi biết tổng S và tích P: X² - SX + P = 0.`,
           ${!item.isCorrect ? `<div class="text-[11px] font-semibold text-emerald-700">Đáp án đúng: ${escapeHtml(item.correctAnsText)}</div>` : ''}
           <div class="text-[10px] text-slate-500 mt-1 italic">💡 ${escapeHtml(item.explanation)}</div>
         `;
-        bdList.appendChild(itemBox);
+          bdList.appendChild(itemBox);
       });
 
-      lucide.createIcons();
+          lucide.createIcons();
     }
 
     function initChart() {
@@ -1189,7 +1183,7 @@ Tìm 2 số khi biết tổng S và tích P: X² - SX + P = 0.`,
       renderDashboard();
     }
 
-    function toggleApiKeyModal() {
+          function toggleApiKeyModal() {
       const modal = document.getElementById('api-modal');
       modal.classList.toggle('hidden');
       if (!modal.classList.contains('hidden')) {
