@@ -62,7 +62,8 @@
     .pulse-urgent {
       animation: pulse-ring 2s infinite ease-in-out;
     }
-  </style>
+
+    </style>
 </head>
 <body class="min-h-screen flex flex-col font-sans text-slate-800">
 
@@ -78,7 +79,8 @@
           <div>
             <div class="flex items-center flex-wrap gap-1.5">
               <span class="font-extrabold text-base sm:text-xl tracking-tight bg-gradient-to-r from-blue-700 via-indigo-600 to-teal-600 bg-clip-text text-transparent">Ebbinghaus AI</span>
-              <span class="bg-blue-100 text-blue-700 text-[10px] sm:text-xs font-semibold px-2 py-0.5 rounded-full border border-blue-200">Toàn Diện Lớp 9</span></div>
+              <span class="bg-blue-100 text-blue-700 text-[10px] sm:text-xs font-semibold px-2 py-0.5 rounded-full border border-blue-200">Toàn Diện Lớp 9</span>
+            </div>
             <p class="text-[11px] sm:text-xs text-slate-500 font-medium">Tác giả: <span class="text-indigo-600 font-bold">Huỳnh Hải Yến</span></p>
           </div>
         </div>
@@ -107,7 +109,7 @@
     </div>
   </header>
 
-  <!-- MAIN CONTAINER -->
+    <!-- MAIN CONTAINER -->
   <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6">
 
     <!-- SIMULATION GLOBAL CONTROLS BAR -->
@@ -168,7 +170,7 @@
           </div>
         </div>
 
-        <div class="glass-card rounded-2xl p-4 sm:p-5 shadow-sm">
+                <div class="glass-card rounded-2xl p-4 sm:p-5 shadow-sm">
           <div class="flex items-center justify-between text-slate-500 mb-2">
             <span class="text-[11px] font-bold uppercase tracking-wider">Trí Nhớ Trung Bình</span>
             <div class="p-2 bg-teal-50 text-teal-600 rounded-lg"><i data-lucide="activity" class="w-4 h-4"></i></div>
@@ -237,7 +239,7 @@
             </div>
           </div>
 
-          <div class="pt-3 border-t border-slate-100 mt-4 flex items-center justify-between text-xs text-slate-500">
+                    <div class="pt-3 border-t border-slate-100 mt-4 flex items-center justify-between text-xs text-slate-500">
             <span>Tác giả dự án:</span>
             <span class="text-indigo-700 font-bold">Huỳnh Hải Yến</span>
           </div>
@@ -292,7 +294,105 @@
 
     </div>
 
-    <h5 class="font-bold text-slate-800 mb-2 flex items-center gap-1.5">
+    <!-- TAB 2: ADD LESSON FORM -->
+    <div id="tab-add" class="hidden max-w-3xl mx-auto">
+      <div class="glass-card rounded-3xl p-6 sm:p-8 shadow-sm">
+        <div class="flex items-center space-x-3 mb-6 pb-4 border-b border-slate-100">
+          <div class="w-12 h-12 bg-blue-50 text-blue-600 rounded-2xl flex items-center justify-center">
+            <i data-lucide="plus-circle" class="w-6 h-6"></i>
+          </div>
+          <div>
+            <h2 class="text-xl font-bold text-slate-900">Thêm Bài Học Mới Vào Kho Ôn Tập</h2>
+            <p class="text-xs text-slate-500">Hỗ trợ đầy đủ tất cả các môn học Lớp 9 (Kết nối tri thức)</p>
+          </div>
+        </div>
+
+                <form id="add-lesson-form" onsubmit="handleAddLesson(event)" class="space-y-5">
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <div>
+              <label class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2">Chọn Môn Học *</label>
+              <select id="lesson-subject" required class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm bg-white font-semibold">
+                <option value="Toán">Toán Học</option>
+                <option value="Ngữ văn">Ngữ Văn</option>
+                <option value="Tiếng Anh">Tiếng Anh</option>
+                <option value="Vật lý">Vật Lý (KHTN)</option>
+                <option value="Hóa học">Hóa Học (KHTN)</option>
+                <option value="Sinh học">Sinh Học (KHTN)</option>
+                <option value="Lịch sử">Lịch Sử</option>
+                <option value="Địa lý">Địa Lý</option>
+                <option value="GDCD">Giáo Dục Công Dân</option>
+              </select>
+            </div>
+            <div class="sm:col-span-2">
+              <label class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2">Tên Bài Học / Chủ Đề *</label>
+              <input type="text" id="lesson-title" required placeholder="Ví dụ: Phương trình bậc hai, Các vùng kinh tế..." class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm bg-white">
+            </div>
+          </div>
+
+          <!-- Content Input Area -->
+          <div>
+            <label class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2">Nội Dung Tóm Tắt Kiến Thức *</label>
+            <textarea id="lesson-content" required rows="6" placeholder="Nhập hoặc dán nội dung tóm tắt lý thuyết, công thức, từ vựng, mốc lịch sử cần ghi nhớ vào đây..." class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm bg-white leading-relaxed custom-scrollbar"></textarea>
+          </div>
+
+          <!-- Submit Button -->
+          <div class="pt-3 flex items-center justify-end space-x-3">
+            <button type="button" onclick="switchTab('dashboard')" class="px-5 py-2.5 text-slate-600 hover:bg-slate-100 rounded-xl text-sm font-semibold transition-all">
+              Hủy Bỏ
+            </button>
+            <button type="submit" class="px-6 py-3 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white text-sm font-bold rounded-xl shadow-lg shadow-blue-600/25 transition-all flex items-center space-x-2 active:scale-95">
+              <i data-lucide="save" class="w-4 h-4"></i>
+              <span>Lưu & Tính Lịch Chống Quên</span>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+        <!-- TAB 3: EBBINGHAUS THEORY & ALGORITHM EXPLANATION -->
+    <div id="tab-theory" class="hidden max-w-4xl mx-auto space-y-6">
+      <div class="glass-card rounded-3xl p-6 sm:p-8 shadow-sm">
+        <div class="flex items-center space-x-3 mb-6 pb-4 border-b border-slate-100">
+          <div class="w-12 h-12 bg-indigo-50 text-indigo-600 rounded-2xl flex items-center justify-center">
+            <i data-lucide="brain" class="w-6 h-6"></i>
+          </div>
+          <div>
+            <h2 class="text-xl font-bold text-slate-900">Cơ Sở Khoa Học & Thuật Toán Ebbinghaus</h2>
+            <p class="text-xs text-slate-500">Đề tài Khoa học Kỹ thuật - Tác giả: Huỳnh Hải Yến</p>
+          </div>
+        </div>
+
+        <div class="space-y-4 text-sm">
+          <div class="bg-blue-50/60 p-4 rounded-2xl border border-blue-100">
+            <h4 class="font-bold text-blue-900 text-base mb-1">1. Định Luật Quên Ebbinghaus (Hermann Ebbinghaus, 1885)</h4>
+            <p class="text-slate-700 leading-relaxed">
+              Tốc độ quên kiến thức của não bộ con người diễn ra theo hàm số mũ suy giảm. Tỷ lệ ghi nhớ còn lại <strong>R</strong> được tính theo công thức toán học:
+            </p>
+            <div class="my-3 p-3 bg-white rounded-xl text-center font-mono font-bold text-blue-700 text-base border border-blue-200">
+              R = e^(-t / S) × 100%
+            </div>
+            <ul class="list-disc list-inside text-xs text-slate-600 space-y-1">
+              <li><strong>R (Retention Rate):</strong> Tỷ lệ kiến thức còn giữ lại được trong trí nhớ (%)</li>
+              <li><strong>t (Time):</strong> Thời gian trôi qua kể từ lần học hoặc ôn gần nhất (tính theo giờ)</li>
+              <li><strong>S (Strength of Memory):</strong> Độ bền của vết trí nhớ (tăng lên sau mỗi lần ôn đạt yêu cầu)</li>
+            </ul>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="p-4 bg-slate-50 rounded-2xl border border-slate-200">
+              <h5 class="font-bold text-slate-800 mb-2 flex items-center gap-1.5">
+                <i data-lucide="clock" class="w-4 h-4 text-amber-500"></i> Các Chu Kỳ Ôn Tập Vàng
+              </h5>
+              <ol class="list-decimal list-inside text-xs text-slate-600 space-y-1.5 font-medium">
+                <li>Lần 1: Sau 24 giờ (Khôi phục trí nhớ từ 40% lên 100%)</li>
+                <li>Lần 2: Sau 3 ngày (Độ bền S tăng gấp 3.5 lần)</li>
+                <li>Lần 3: Sau 7 ngày (Trí nhớ đạt trạng thái ổn định)</li>
+                <li>Lần 4: Sau 21 ngày (Chuyển thành Trí Nhớ Dài Hạn bền vững)</li>
+              </ol>
+            </div>
+
+            <div class="p-4 bg-slate-50 rounded-2xl border border-slate-200">
+              <h5 class="font-bold text-slate-800 mb-2 flex items-center gap-1.5">
                 <i data-lucide="cpu" class="w-4 h-4 text-teal-600"></i> Cơ Chế Đánh Giá Thông Minh
               </h5>
               <p class="text-xs text-slate-600 leading-relaxed">
@@ -306,11 +406,105 @@
 
   </main>
 
-  <div id="result-breakdown" class="text-left space-y-2.5 bg-slate-50 p-4 rounded-2xl border border-slate-200 text-xs"></div>
+    <!-- FOOTER -->
+  <footer class="bg-white border-t border-slate-200 py-4 mt-8">
+    <div class="max-w-7xl mx-auto px-4 text-center text-xs text-slate-500">
+      Dự án Khoa học Kỹ thuật: <strong>Hệ thống Ôn tập Chống quên Ebbinghaus Toàn Diện Lớp 9</strong> • Tác giả: <span class="font-bold text-indigo-600">Huỳnh Hải Yến</span>
+    </div>
+  </footer>
+
+  <!-- LESSON SUMMARY VIEWER MODAL (XEM TÓM TẮT CHI TIẾT) -->
+  <div id="summary-modal" class="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-md flex items-center justify-center p-4 hidden">
+    <div class="bg-white rounded-3xl max-w-2xl w-full max-h-[88vh] overflow-y-auto shadow-2xl border border-slate-100 flex flex-col justify-between custom-scrollbar">
+      <div class="p-5 sm:p-6 border-b border-slate-100 flex items-center justify-between sticky top-0 bg-white/95 backdrop-blur-sm z-10">
+        <div class="flex items-center space-x-3">
+          <div class="w-10 h-10 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center">
+            <i data-lucide="book-open" class="w-5 h-5"></i>
+          </div>
+          <div>
+            <span id="summary-modal-subject" class="text-xs font-bold px-2 py-0.5 rounded-md bg-blue-100 text-blue-700">Môn Học</span>
+            <h3 id="summary-modal-title" class="font-bold text-slate-900 text-base sm:text-lg mt-0.5">Tiêu đề bài học</h3>
+          </div>
+        </div>
+        <button onclick="closeSummaryModal()" class="p-2 text-slate-400 hover:text-slate-600 rounded-full hover:bg-slate-100">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <div class="p-5 sm:p-6 flex-1">
+        <div class="bg-slate-50 p-4 sm:p-5 rounded-2xl border border-slate-200/80">
+          <h4 class="text-xs font-bold uppercase tracking-wider text-indigo-600 mb-3 flex items-center gap-1.5">
+            <i data-lucide="file-text" class="w-4 h-4"></i> Nội Dung Kiến Thức Trọng Tâm Lớp 9:
+          </h4>
+          <div id="summary-modal-content" class="text-xs sm:text-sm text-slate-700 whitespace-pre-line leading-relaxed font-medium"></div>
         </div>
       </div>
 
-      <!-- Modal Footer -->
+      <div class="p-4 sm:p-5 border-t border-slate-100 bg-slate-50/50 flex items-center justify-between rounded-b-3xl">
+        <button onclick="closeSummaryModal()" class="px-4 py-2 text-slate-600 hover:bg-slate-200/60 rounded-xl text-xs font-semibold transition-all">
+          Đóng lại
+        </button>
+        <button id="btn-summary-to-quiz" class="px-5 py-2.5 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white text-xs font-bold rounded-xl shadow-md transition-all flex items-center space-x-1.5">
+          <i data-lucide="brain-circuit" class="w-4 h-4"></i>
+          <span>Luyện Trắc Nghiệm Bài Này</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+    <!-- AI QUIZ MODAL -->
+  <div id="quiz-modal" class="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-md flex items-center justify-center p-4 hidden">
+    <div class="bg-white rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl border border-slate-100 flex flex-col justify-between custom-scrollbar">
+
+      <!-- Modal Header -->
+      <div class="p-5 sm:p-6 border-b border-slate-100 flex items-center justify-between sticky top-0 bg-white/95 backdrop-blur-sm z-10">
+        <div class="flex items-center space-x-3">
+          <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-teal-500 to-blue-600 text-white flex items-center justify-center shadow-md">
+            <i data-lucide="sparkles" class="w-5 h-5"></i>
+          </div>
+          <div>
+            <span id="quiz-modal-subject" class="text-xs font-semibold px-2 py-0.5 rounded-md bg-blue-100 text-blue-700">Môn Học</span>
+            <h3 id="quiz-modal-title" class="font-bold text-slate-900 text-base sm:text-lg">Phòng Ôn Tập Thông Minh</h3>
+          </div>
+        </div>
+        <button onclick="closeQuizModal()" class="p-2 text-slate-400 hover:text-slate-600 rounded-full hover:bg-slate-100">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <!-- Modal Body -->
+      <div class="p-5 sm:p-6 space-y-5 flex-1">
+        <div id="quiz-loading" class="py-10 text-center space-y-3">
+          <div class="inline-block relative">
+            <div class="w-12 h-12 rounded-full border-4 border-blue-200 border-t-blue-600 animate-spin"></div>
+            <i data-lucide="bot" class="w-5 h-5 text-blue-600 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"></i>
+          </div>
+          <p class="text-sm font-semibold text-slate-700">Đang phân tích bài học & tạo bộ câu hỏi trắc nghiệm...</p>
+        </div>
+
+        <div id="quiz-container" class="hidden space-y-5">
+          <div class="p-3.5 bg-blue-50/80 border border-blue-100 rounded-2xl flex items-center justify-between text-xs text-blue-800">
+            <span class="flex items-center gap-1.5 font-medium">
+              <i data-lucide="help-circle" class="w-4 h-4 text-blue-600"></i> Trả lời 3 câu hỏi để củng cố vết trí nhớ
+            </span>
+            <span class="font-bold bg-white px-2.5 py-1 rounded-md text-blue-600 shadow-sm">Đạt: ≥ 2/3 câu</span>
+          </div>
+
+          <div id="quiz-questions-list" class="space-y-5"></div>
+        </div>
+
+        <div id="quiz-results" class="hidden text-center space-y-5 py-3">
+          <div id="result-icon-box" class="w-16 h-16 rounded-full mx-auto flex items-center justify-center text-white shadow-xl"></div>
+          <div>
+            <h4 id="result-score-text" class="text-xl font-extrabold text-slate-900">Đạt 3/3 Câu Đúng!</h4>
+            <p id="result-sub-text" class="text-xs sm:text-sm text-slate-500 mt-1">Độ bền trí nhớ đã tăng lên.</p>
+          </div>
+
+          <div id="result-breakdown" class="text-left space-y-2.5 bg-slate-50 p-4 rounded-2xl border border-slate-200 text-xs"></div>
+        </div>
+      </div>
+
+            <!-- Modal Footer -->
       <div class="p-4 sm:p-5 border-t border-slate-100 bg-slate-50/50 flex items-center justify-end space-x-3 rounded-b-3xl">
         <button id="btn-quiz-cancel" onclick="closeQuizModal()" class="px-4 py-2 text-slate-600 hover:bg-slate-200/60 rounded-xl text-xs font-semibold transition-all">
           Đóng
@@ -320,7 +514,69 @@
           <span>Nộp Bài & Cập Nhật Trí Nhớ</span>
         </button>
       </div>
-  • Nếu a - b + c = 0 ⇒ x₁ = -1; x₂ = -c/a
+    </div>
+  </div>
+
+  <!-- OPTIONAL API KEY CONFIG MODAL -->
+  <div id="api-modal" class="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-md flex items-center justify-center p-4 hidden">
+    <div class="bg-white rounded-3xl max-w-md w-full p-6 shadow-2xl border border-slate-100 space-y-4">
+      <div class="flex items-center justify-between">
+        <div class="flex items-center space-x-2">
+          <div class="p-2 bg-blue-50 text-blue-600 rounded-xl">
+            <i data-lucide="key" class="w-5 h-5"></i>
+          </div>
+          <h3 class="font-bold text-slate-900 text-base">Cài Đặt Nâng Cao (Không Bắt Buộc)</h3>
+        </div>
+        <button onclick="toggleApiKeyModal()" class="text-slate-400 hover:text-slate-600"><i data-lucide="x" class="w-5 h-5"></i></button>
+      </div>
+
+      <p class="text-xs text-slate-500 leading-relaxed">
+        Ứng dụng <strong>đã tích hợp sẵn bộ tạo câu hỏi thông minh cho tất cả các môn</strong> nên không cần nhập khóa vẫn dùng mượt mà. Nếu muốn dùng thêm Gemini API Key riêng, bạn có thể nhập ở dưới:
+      </p>
+
+      <div>
+        <input type="password" id="api-key-input" placeholder="Dán Gemini API Key (tùy chọn)..." class="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-xs focus:ring-2 focus:ring-blue-500 outline-none">
+      </div>
+
+      <div class="flex items-center justify-end space-x-2 pt-2">
+        <button onclick="toggleApiKeyModal()" class="px-4 py-2 text-slate-600 hover:bg-slate-100 rounded-xl text-xs font-semibold">Đóng</button>
+        <button onclick="saveApiKey()" class="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-xl text-xs font-bold shadow-md">Lưu Khóa</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOAST NOTIFICATION CONTAINER -->
+  <div id="toast-container" class="fixed bottom-5 right-5 z-50 flex flex-col space-y-2 pointer-events-none"></div>
+
+  <!-- JAVASCRIPT LOGIC -->
+  <script>
+    const STORAGE_KEY = 'ebbinghaus_lessons_all_subjects_v3';
+    const API_KEY_STORAGE = 'ebbinghaus_api_key';
+    let lessons = [];
+    let currentSimulatedHours = 0;
+    let currentActiveLessonId = null;
+    let currentQuizData = null;
+    let ebbinghausChartInstance = null;
+    let currentSubjectFilter = 'ALL';
+
+        // KHO TÓM TẮT KIẾN THỨC TRỌNG TÂM ĐỦ 9 MÔN LỚP 9 (KẾT NỐI TRI THỨC)
+    const ALL_SUBJECTS_CURRICULUM = [
+      {
+        id: 'math-1',
+        subject: 'Toán',
+        title: 'Hệ thức Vi-ét & Phương trình bậc hai',
+        content: `1. Công thức nghiệm phương trình ax² + bx + c = 0 (a ≠ 0):
+• Biệt thức Δ = b² - 4ac.
+• Nếu Δ > 0: có 2 nghiệm phân biệt x₁,₂ = (-b ± √Δ) / (2a).
+• Nếu Δ = 0: có nghiệm kép x₁ = x₂ = -b / (2a).
+
+2. Hệ thức Vi-ét:
+• Tổng hai nghiệm: S = x₁ + x₂ = -b/a
+• Tích hai nghiệm: P = x₁.x₂ = c/a
+
+3. Nhẩm nghiệm nhanh:
+• Nếu a + b + c = 0 ⇒ x₁ = 1; x₂ = c/a
+• Nếu a - b + c = 0 ⇒ x₁ = -1; x₂ = -c/a
 • Tìm hai số biết tổng S và tích P: là nghiệm của phương trình X² - SX + P = 0 (ĐK: S² ≥ 4P).`,
         createdAt: Date.now() - (16 * 3600 * 1000),
         lastReviewedAt: Date.now() - (16 * 3600 * 1000),
@@ -349,9 +605,7 @@
         title: 'Tóm tắt Truyện Kiều & Thơ Trung Đại Lớp 9',
         content: `1. Chuyện người con gái Nam Xương (Nguyễn Dữ):
 • Vũ Nương: người phụ nữ đẹp người đẹp nết, thủy chung nhưng chịu nỗi oan khuất dẫn đến cái chết bi thảm dưới bến Hoàng Giang.
-• Giá trị nhân đạo: Ca ngợi vẻ đẹp• Metan (CH₄): liên kết đơn, phản ứng đặc trưng là phản ứng thế với Clo (ánh sáng).
-
-  truyền thống của người phụ nữ và lên án xã hội phong kiến trọng nam khinh nữ, chiến tranh phi nghĩa.
+• Giá trị nhân đạo: Ca ngợi vẻ đẹp truyền thống của người phụ nữ và lên án xã hội phong kiến trọng nam khinh nữ, chiến tranh phi nghĩa.
 
 2. Truyện Kiều (Nguyễn Du):
 • Gồm 3 phần: Gặp gỡ và đính ước - Gia biến và lưu lạc - Đoàn tụ.
@@ -405,7 +659,7 @@ K, Na, Ca, Mg, Al, Zn, Fe, Ni, Sn, Pb, (H), Cu, Hg, Ag, Pt, Au.
 • Ý nghĩa: Kim loại đứng trước H phản ứng với axit (HCl, H₂SO₄ loãng) giải phóng khí H₂. Kim loại đứng trước đẩy kim loại đứng sau ra khỏi dung dịch muối (trừ K, Na, Ca).
 
 2. Hóa hữu cơ cơ bản:
-  • Metan (CH₄): liên kết đơn, phản ứng đặc trưng là phản ứng thế với Clo (ánh sáng).
+• Metan (CH₄): liên kết đơn, phản ứng đặc trưng là phản ứng thế với Clo (ánh sáng).
 • Etilen (C₂H₄): có 1 liên kết đôi, làm mất màu dung dịch Brom (phản ứng cộng).
 • Rượu etylic (C₂H₅OH) tác dụng với Natri giải phóng H₂ và tác dụng với Axit axetic (CH₃COOH) tạo este etyl axetat thơm.`,
         createdAt: Date.now() - (14 * 3600 * 1000),
@@ -452,7 +706,7 @@ K, Na, Ca, Mg, Al, Zn, Fe, Ni, Sn, Pb, (H), Cu, Hg, Ag, Pt, Au.
         content: `1. Chuyển dịch cơ cấu kinh tế:
 • Giảm tỉ trọng khu vực Nông - Lâm - Ngư nghiệp; tăng tỉ trọng Công nghiệp - Xây dựng và Dịch vụ.
 
-  2. Các vùng kinh tế trọng điểm & Khu công nghệ cao:
+2. Các vùng kinh tế trọng điểm & Khu công nghệ cao:
 • Vùng kinh tế trọng điểm Bắc Bộ (Hà Nội, Hải Phòng, Quảng Ninh...), Miền Trung (Đà Nẵng, Thừa Thiên Huế...), Phía Nam (TP.HCM, Bình Dương, Đồng Nai...) và Vùng ĐBSCL.
 • Các khu công nghệ cao lớn: Khu CNC Hòa Lạc (Hà Nội), Khu CNC Đà Nẵng (Hòa Vang), Khu CNC TP. Hồ Chí Minh (TP. Thủ Đức).
 
@@ -480,7 +734,7 @@ K, Na, Ca, Mg, Al, Zn, Fe, Ni, Sn, Pb, (H), Cu, Hg, Ag, Pt, Au.
       }
     ];
 
-    window.onload = function() {
+        window.onload = function() {
       lucide.createIcons();
       loadLessons();
       initChart();
@@ -518,7 +772,7 @@ K, Na, Ca, Mg, Al, Zn, Fe, Ni, Sn, Pb, (H), Cu, Hg, Ag, Pt, Au.
     function calculateRetention(lesson) {
       const now = Date.now() + (currentSimulatedHours * 3600 * 1000);
       const hoursElapsed = Math.max(0, (now - lesson.lastReviewedAt) / (1000 * 3600));
-  const S = lesson.strengthS || 28;
+      const S = lesson.strengthS || 28;
       const retention = Math.exp(-hoursElapsed / S) * 100;
       return Math.min(100, Math.max(1, Math.round(retention)));
     }
@@ -548,17 +802,6 @@ K, Na, Ca, Mg, Al, Zn, Fe, Ni, Sn, Pb, (H), Cu, Hg, Ag, Pt, Au.
       }
     }
 
-    function getStageLabel(stage) {
-      switch(stage) {
-        case 1: return 'Mốc 1: 24 Giờ';
-        case 2: return 'Mốc 2: 3 Ngày';
-        case 3: return 'Mốc 3: 7 Ngày';
-        case 4: return 'Mốc 4: 21 Ngày';
-        case 5: return 'Đã Thuộc Lòng';
-        default: return 'Mốc 1: 24 Giờ';
-      }
-    }
-
     function renderDashboard() {
       const grid = document.getElementById('lessons-grid');
       const emptyState = document.getElementById('empty-state');
@@ -580,7 +823,7 @@ K, Na, Ca, Mg, Al, Zn, Fe, Ni, Sn, Pb, (H), Cu, Hg, Ag, Pt, Au.
       let urgentCount = 0;
       let masteredCount = 0;
 
-  lessons.forEach(lesson => {
+      lessons.forEach(lesson => {
         const retention = calculateRetention(lesson);
         totalRetentionSum += retention;
         if (retention < 40) urgentCount++;
@@ -613,8 +856,6 @@ K, Na, Ca, Mg, Al, Zn, Fe, Ni, Sn, Pb, (H), Cu, Hg, Ag, Pt, Au.
                 ${status.label}
               </span>
             </div>
-
-            <h3 class="font-bold text-slate-900 text-base mb-1.5 line-clamp-1 group-hover:text-blue-600 transition-colors">${escapeHtml(lesson.title)}</h3>
             <p class="text-xs text-slate-500 line-clamp-2 mb-4 leading-relaxed">${escapeHtml(lesson.content)}</p>
 
             <div class="space-y-1.5 mb-4 bg-slate-50 p-3 rounded-xl border border-slate-100">
@@ -671,7 +912,7 @@ K, Na, Ca, Mg, Al, Zn, Fe, Ni, Sn, Pb, (H), Cu, Hg, Ag, Pt, Au.
       lucide.createIcons();
     }
 
-          function closeSummaryModal() {
+    function closeSummaryModal() {
       document.getElementById('summary-modal').classList.add('hidden');
     }
 
@@ -682,14 +923,7 @@ K, Na, Ca, Mg, Al, Zn, Fe, Ni, Sn, Pb, (H), Cu, Hg, Ag, Pt, Au.
       showToast(`Đã giả lập thời gian trôi qua +${hours} giờ!`, 'info');
     }
 
-    function resetSimulation() {
-      currentSimulatedHours = 0;
-      document.getElementById('simulated-hours-badge').innerText = `+0 giờ`;
-      renderDashboard();
-      showToast('Đã khôi phục về thời gian thực!', 'success');
-    }
-
-    function handleAddLesson(e) {
+        function handleAddLesson(e) {
       e.preventDefault();
       const subject = document.getElementById('lesson-subject').value;
       const title = document.getElementById('lesson-title').value.trim();
@@ -708,7 +942,7 @@ K, Na, Ca, Mg, Al, Zn, Fe, Ni, Sn, Pb, (H), Cu, Hg, Ag, Pt, Au.
         strengthS: 28
       };
 
-          lessons.unshift(newLesson);
+      lessons.unshift(newLesson);
       saveLessons();
       renderDashboard();
 
@@ -740,7 +974,9 @@ K, Na, Ca, Mg, Al, Zn, Fe, Ni, Sn, Pb, (H), Cu, Hg, Ag, Pt, Au.
       document.getElementById('quiz-results').classList.add('hidden');
       document.getElementById('btn-quiz-submit').classList.add('hidden');
 
-          currentQuizData = await generateQuizWithAI(lesson);
+      currentQuizData = await generateQuizWithAI(lesson);
+
+            currentQuizData = await generateQuizWithAI(lesson);
 
       setTimeout(() => {
         renderQuizQuestions(currentQuizData);
@@ -778,7 +1014,7 @@ K, Na, Ca, Mg, Al, Zn, Fe, Ni, Sn, Pb, (H), Cu, Hg, Ag, Pt, Au.
         }
       }
 
-          return generateOfflineQuiz(lesson);
+      return generateOfflineQuiz(lesson);
     }
 
     // BỘ TẠO TRẮC NGHIỆM THÔNG MINH CHO TẤT CẢ 9 MÔN LỚP 9
@@ -808,7 +1044,7 @@ K, Na, Ca, Mg, Al, Zn, Fe, Ni, Sn, Pb, (H), Cu, Hg, Ag, Pt, Au.
         case 'Ngữ văn':
           return [
             {
-              question: "Tác phẩm 'Chuyện người con gái Nam Xương' do ai sáng tác?",
+                            question: "Tác phẩm 'Chuyện người con gái Nam Xương' do ai sáng tác?",
               options: ["A. Nguyễn Dữ", "B. Nguyễn Du", "C. Nguyễn Đình Chiểu", "D. Lê Thánh Tông"],
               answer: 0,
               explanation: "Tác phẩm trích từ 'Truyền kì mạn lục' của danh sĩ Nguyễn Dữ thế kỉ XVI."
@@ -829,7 +1065,7 @@ K, Na, Ca, Mg, Al, Zn, Fe, Ni, Sn, Pb, (H), Cu, Hg, Ag, Pt, Au.
         case 'Tiếng Anh':
           return [
             {
-          question: "Cấu trúc câu ước (Wish) diễn tả mong muốn không có thật ở hiện tại là gì?",
+              question: "Cấu trúc câu ước (Wish) diễn tả mong muốn không có thật ở hiện tại là gì?",
               options: ["A. S + wish(es) + S + V2/ed (were)", "B. S + wish(es) + S + will + V", "C. S + wish(es) + S + V(s/es)", "D. S + wish(es) + to V"],
               answer: 0,
               explanation: "Câu ước ở hiện tại lùi về thì quá khứ đơn (V2/ed, to be dùng were cho mọi ngôi)."
@@ -868,11 +1104,11 @@ K, Na, Ca, Mg, Al, Zn, Fe, Ni, Sn, Pb, (H), Cu, Hg, Ag, Pt, Au.
               explanation: "Mọi tia sáng đi qua quang tâm O của thấu kính đều truyền thẳng không đổi hướng."
             }
           ];
-        case 'Hóa học':
+                  case 'Hóa học':
           return [
             {
               question: "Kim loại nào sau đây KHÔNG phản ứng được với dung dịch axit HCl loãng?",
-          options: ["A. Đồng (Cu)", "B. Sắt (Fe)", "C. Kẽm (Zn)", "D. Magie (Mg)"],
+              options: ["A. Đồng (Cu)", "B. Sắt (Fe)", "C. Kẽm (Zn)", "D. Magie (Mg)"],
               answer: 0,
               explanation: "Đồng (Cu) đứng sau Hiđro trong dãy hoạt động hóa học nên không tác dụng với HCl loãng."
             },
@@ -889,7 +1125,7 @@ K, Na, Ca, Mg, Al, Zn, Fe, Ni, Sn, Pb, (H), Cu, Hg, Ag, Pt, Au.
               explanation: "Fe phản ứng với HCl chỉ tạo ra muối Sắt(II) clorua (FeCl₂) và giải phóng khí H₂."
             }
           ];
-          case 'Sinh học':
+        case 'Sinh học':
           return [
             {
               question: "Theo nguyên tắc bổ sung trong phân tử ADN, Ađênin (A) luôn liên kết với loại Nu nào?",
@@ -931,7 +1167,7 @@ K, Na, Ca, Mg, Al, Zn, Fe, Ni, Sn, Pb, (H), Cu, Hg, Ag, Pt, Au.
               explanation: "Hội nghị hợp nhất các tổ chức cộng sản đầu năm 1930 đã thành lập Đảng Cộng sản Việt Nam."
             }
           ];
-          case 'Địa lý':
+        case 'Địa lý':
           return [
             {
               question: "Khu công nghệ cao Hòa Lạc thuộc tỉnh/thành phố nào của nước ta?",
@@ -940,7 +1176,7 @@ K, Na, Ca, Mg, Al, Zn, Fe, Ni, Sn, Pb, (H), Cu, Hg, Ag, Pt, Au.
               explanation: "Khu công nghệ cao Hòa Lạc nằm ở phía Tây thủ đô Hà Nội (huyện Thạch Thất)."
             },
             {
-              question: "Vùng nào là vựa lúa và vùng sản xuất thủy sản lớn nhất cả nước?",
+                            question: "Vùng nào là vựa lúa và vùng sản xuất thủy sản lớn nhất cả nước?",
               options: ["A. Đồng bằng sông Cửu Long", "B. Đồng bằng sông Hồng", "C. Đông Nam Bộ", "D. Tây Nguyên"],
               answer: 0,
               explanation: "Đồng bằng sông Cửu Long chiếm hơn 50% sản lượng lúa và thủy sản của cả nước."
@@ -970,12 +1206,13 @@ K, Na, Ca, Mg, Al, Zn, Fe, Ni, Sn, Pb, (H), Cu, Hg, Ag, Pt, Au.
               question: "Theo biểu đồ quên Ebbinghaus, việc ôn tập lại kiến thức sau 24 giờ giúp ích gì?",
               options: ["A. Khôi phục trí nhớ lên 100% và kéo dài thời gian ghi nhớ", "B. Làm lãng phí thời gian", "C. Khiến não bộ nhanh quên hơn", "D. Không có tác dụng gì"],
               answer: 0,
-          explanation: "Ôn tập đúng điểm rơi 24h giúp củng cố liên kết thần kinh, chống lại sự đào thải tự nhiên."
+              explanation: "Ôn tập đúng điểm rơi 24h giúp củng cố liên kết thần kinh, chống lại sự đào thải tự nhiên."
             }
           ];
       }
     }
-          function renderQuizQuestions(quizData) {
+
+    function renderQuizQuestions(quizData) {
       const container = document.getElementById('quiz-questions-list');
       container.innerHTML = '';
 
@@ -993,7 +1230,7 @@ K, Na, Ca, Mg, Al, Zn, Fe, Ni, Sn, Pb, (H), Cu, Hg, Ag, Pt, Au.
           `;
         });
 
-        qBox.innerHTML = `
+                qBox.innerHTML = `
           <h4 class="font-bold text-slate-800 text-xs sm:text-sm">Câu ${idx + 1}: ${escapeHtml(q.question)}</h4>
           <div class="space-y-2">${optionsHtml}</div>
         `;
@@ -1023,7 +1260,7 @@ K, Na, Ca, Mg, Al, Zn, Fe, Ni, Sn, Pb, (H), Cu, Hg, Ag, Pt, Au.
         });
       });
 
-          const lesson = lessons.find(l => l.id === currentActiveLessonId);
+      const lesson = lessons.find(l => l.id === currentActiveLessonId);
       if (lesson) {
         lesson.lastReviewedAt = Date.now() + (currentSimulatedHours * 3600 * 1000);
         
@@ -1041,7 +1278,7 @@ K, Na, Ca, Mg, Al, Zn, Fe, Ni, Sn, Pb, (H), Cu, Hg, Ag, Pt, Au.
         renderDashboard();
       }
 
-      document.getElementById('quiz-container').classList.add('hidden');
+            document.getElementById('quiz-container').classList.add('hidden');
       document.getElementById('btn-quiz-submit').classList.add('hidden');
       
       const resScreen = document.getElementById('quiz-results');
@@ -1074,10 +1311,10 @@ K, Na, Ca, Mg, Al, Zn, Fe, Ni, Sn, Pb, (H), Cu, Hg, Ag, Pt, Au.
           ${!item.isCorrect ? `<div class="text-[11px] font-semibold text-emerald-700">Đáp án đúng: ${escapeHtml(item.correctAnsText)}</div>` : ''}
           <div class="text-[10px] text-slate-500 mt-1 italic">💡 ${escapeHtml(item.explanation)}</div>
         `;
-          bdList.appendChild(itemBox);
+        bdList.appendChild(itemBox);
       });
 
-          lucide.createIcons();
+      lucide.createIcons();
     }
 
     function initChart() {
@@ -1092,7 +1329,7 @@ K, Na, Ca, Mg, Al, Zn, Fe, Ni, Sn, Pb, (H), Cu, Hg, Ag, Pt, Au.
           labels: timeLabels,
           datasets: [
             {
-              label: 'Có Ôn Tập Ebbinghaus (%)',
+                            label: 'Có Ôn Tập Ebbinghaus (%)',
               data: withReviewData,
               borderColor: '#2563eb',
               backgroundColor: 'rgba(37, 99, 235, 0.1)',
@@ -1147,7 +1384,7 @@ K, Na, Ca, Mg, Al, Zn, Fe, Ni, Sn, Pb, (H), Cu, Hg, Ag, Pt, Au.
       });
     }
 
-    function switchTab(tabName) {
+        function switchTab(tabName) {
       document.getElementById('tab-dashboard').classList.add('hidden');
       document.getElementById('tab-add').classList.add('hidden');
       document.getElementById('tab-theory').classList.add('hidden');
@@ -1183,7 +1420,7 @@ K, Na, Ca, Mg, Al, Zn, Fe, Ni, Sn, Pb, (H), Cu, Hg, Ag, Pt, Au.
       renderDashboard();
     }
 
-          function toggleApiKeyModal() {
+    function toggleApiKeyModal() {
       const modal = document.getElementById('api-modal');
       modal.classList.toggle('hidden');
       if (!modal.classList.contains('hidden')) {
@@ -1226,3 +1463,4 @@ K, Na, Ca, Mg, Al, Zn, Fe, Ni, Sn, Pb, (H), Cu, Hg, Ag, Pt, Au.
   </script>
 </body>
 </html>
+            
