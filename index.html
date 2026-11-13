@@ -1018,200 +1018,200 @@ K, Na, Ca, Mg, Al, Zn, Fe, Ni, Sn, Pb, (H), Cu, Hg, Ag, Pt, Au.
     }
 
     // BỘ TẠO TRẮC NGHIỆM THÔNG MINH CHO TẤT CẢ 9 MÔN LỚP 9
-    function generateOfflineQuiz(lesson) {
-      switch (lesson.subject) {
-        case 'Toán':
-          return [
-            {
-              question: "Trong phương trình bậc hai ax² + bx + c = 0 (a ≠ 0), tổng hai nghiệm S (x₁ + x₂) bằng bao nhiêu?",
-              options: ["A. -b / a", "B. c / a", "C. -c / a", "D. b / a"],
-              answer: 0,
-              explanation: "Theo hệ thức Vi-ét, tổng hai nghiệm S = -b/a và tích P = c/a."
-            },
-            {
-              question: "Góc nội tiếp chắn nửa đường tròn có số đo bằng bao nhiêu độ?",
-              options: ["A. 90°", "B. 180°", "C. 60°", "D. 45°"],
-              answer: 0,
-              explanation: "Góc nội tiếp chắn nửa đường tròn (cung 180°) có số đo bằng nửa cung bị chắn nên bằng 90°."
-            },
-            {
-              question: "Tổng hai góc đối diện của một tứ giác nội tiếp đường tròn luôn bằng:",
-              options: ["A. 180°", "B. 90°", "C. 360°", "D. 120°"],
-              answer: 0,
-              explanation: "Trong một tứ giác nội tiếp, tổng số đo hai góc đối diện nhau bằng 180°."
-            }
-          ];
-        case 'Ngữ văn':
-          return [
-            {
-                            question: "Tác phẩm 'Chuyện người con gái Nam Xương' do ai sáng tác?",
-              options: ["A. Nguyễn Dữ", "B. Nguyễn Du", "C. Nguyễn Đình Chiểu", "D. Lê Thánh Tông"],
-              answer: 0,
-              explanation: "Tác phẩm trích từ 'Truyền kì mạn lục' của danh sĩ Nguyễn Dữ thế kỉ XVI."
-            },
-            {
-              question: "Kiệt tác 'Truyện Kiều' của đại thi hào Nguyễn Du được viết theo thể thơ nào?",
-              options: ["A. Lục bát", "B. Song thất lục bát", "C. Thất ngôn bát cú", "D. Tự do"],
-              answer: 0,
-              explanation: "Truyện Kiều gồm 3254 câu thơ lục bát đạt đến đỉnh cao nghệ thuật ngôn từ dân tộc."
-            },
-            {
-              question: "Chi tiết nào là nguyên nhân trực tiếp gây nên nỗi oan khuất của nhân vật Vũ Nương?",
-              options: ["A. Lời nói ngây thơ của bé Đản về chiếc bóng trên tường", "B. Sự gièm pha của hàng xóm", "C. Mẹ chồng ghét bỏ", "D. Thư từ bị thất lạc"],
-              answer: 0,
-              explanation: "Chiếc bóng trên tường và lời nói ngây thơ của bé Đản khiến Trương Sinh nghi oan cho vợ."
-            }
-          ];
-        case 'Tiếng Anh':
-          return [
-            {
-              question: "Cấu trúc câu ước (Wish) diễn tả mong muốn không có thật ở hiện tại là gì?",
-              options: ["A. S + wish(es) + S + V2/ed (were)", "B. S + wish(es) + S + will + V", "C. S + wish(es) + S + V(s/es)", "D. S + wish(es) + to V"],
-              answer: 0,
-              explanation: "Câu ước ở hiện tại lùi về thì quá khứ đơn (V2/ed, to be dùng were cho mọi ngôi)."
-            },
-            {
-              question: "Trong câu điều kiện loại 1 (If + S + V(s/es)), mệnh đề chính dùng cấu trúc nào?",
-              options: ["A. S + will/can + V(inf)", "B. S + would + V(inf)", "C. S + had + V3/ed", "D. S + V2/ed"],
-              answer: 0,
-              explanation: "Câu điều kiện loại 1 diễn tả sự việc có thể xảy ra ở hiện tại/tương lai: If + hiện tại đơn, S + will + V nguyên mẫu."
-            },
-            {
-              question: "Công thức chung của câu bị động (Passive Voice) trong Tiếng Anh là gì?",
-              options: ["A. S + be + V3/ed + (by O)", "B. S + have + V-ing", "C. S + do/does + V(inf)", "D. S + be + V-ing"],
-              answer: 0,
-              explanation: "Câu bị động luôn có dạng động từ 'to be' chia theo thì kết hợp với phân từ hai (V3/ed)."
-            }
-          ];
-        case 'Vật lý':
-          return [
-            {
-              question: "Công thức biểu thị đúng Định luật Ôm cho đoạn mạch là gì?",
-              options: ["A. I = U / R", "B. I = U . R", "C. U = I / R", "D. R = U . I"],
-              answer: 0,
-              explanation: "Cường độ dòng điện I tỉ lệ thuận với hiệu điện thế U và tỉ lệ nghịch với điện trở R: I = U/R."
-            },
-            {
-              question: "Nhiệt lượng tỏa ra trên dây dẫn theo định luật Jun - Len-xơ được tính bằng công thức nào?",
-              options: ["A. Q = I² . R . t", "B. Q = U . I", "C. Q = I . R² . t", "D. Q = U / R"],
-              answer: 0,
-              explanation: "Định luật Jun - Len-xơ: Q = I².R.t (tính bằng Jun)."
-            },
-            {
-              question: "Tia tới đi qua quang tâm O của thấu kính hội tụ sẽ cho tia ló như thế nào?",
-              options: ["A. Tiếp tục truyền thẳng theo phương của tia tới", "B. Đi qua tiêu điểm F", "C. Song song với trục chính", "D. Phản xạ ngược trở lại"],
-              answer: 0,
-              explanation: "Mọi tia sáng đi qua quang tâm O của thấu kính đều truyền thẳng không đổi hướng."
-            }
-          ];
-                  case 'Hóa học':
-          return [
-            {
-              question: "Kim loại nào sau đây KHÔNG phản ứng được với dung dịch axit HCl loãng?",
-              options: ["A. Đồng (Cu)", "B. Sắt (Fe)", "C. Kẽm (Zn)", "D. Magie (Mg)"],
-              answer: 0,
-              explanation: "Đồng (Cu) đứng sau Hiđro trong dãy hoạt động hóa học nên không tác dụng với HCl loãng."
-            },
-            {
-              question: "Khí Hiđrocacbon nào làm mất màu dung dịch Brom ở điều kiện thường?",
-              options: ["A. Etilen (C₂H₄)", "B. Metan (CH₄)", "C. Khí Cacbonic (CO₂)", "D. Khí Nitơ (N₂)"],
-              answer: 0,
-              explanation: "Etilen có chứa 1 liên kết đôi kém bền nên tham gia phản ứng cộng làm mất màu dung dịch Brom."
-            },
-            {
-              question: "Khi cho Sắt (Fe) tác dụng với dung dịch HCl thu được muối nào?",
-              options: ["A. FeCl₂", "B. FeCl₃", "C. Fe₂(SO₄)₃", "D. FeO"],
-              answer: 0,
-              explanation: "Fe phản ứng với HCl chỉ tạo ra muối Sắt(II) clorua (FeCl₂) và giải phóng khí H₂."
-            }
-          ];
-        case 'Sinh học':
-          return [
-            {
-              question: "Theo nguyên tắc bổ sung trong phân tử ADN, Ađênin (A) luôn liên kết với loại Nu nào?",
-              options: ["A. Timin (T)", "B. Guanin (G)", "C. Xitôzin (X)", "D. Uraxin (U)"],
-              answer: 0,
-              explanation: "Trong ADN, A liên kết với T bằng 2 liên kết hiđrô; G liên kết với X bằng 3 liên kết hiđrô."
-            },
-            {
-              question: "Mục đích của phép lai phân tích trong di truyền học Menđen là gì?",
-              options: ["A. Xác định kiểu gen của cá thể mang tính trạng trội", "B. Tạo ra giống cây trồng mới", "C. Xác định tính trạng lặn", "D. Nhân bản vô tính"],
-              answer: 0,
-              explanation: "Lai phân tích giúp kiểm tra cá thể mang tính trạng trội là đồng hợp (AA) hay dị hợp (Aa)."
-            },
-            {
-              question: "Phân tử ARN được cấu tạo từ 4 loại đơn phân nào?",
-              options: ["A. A, U, G, X", "B. A, T, G, X", "C. A, T, U, G", "D. T, U, G, X"],
-              answer: 0,
-              explanation: "ARN không có Timin (T) mà thay bằng Uraxin (U), gồm 4 loại đơn phân A, U, G, X."
-            }
-          ];
-        case 'Lịch sử':
-          return [
-            {
-              question: "Nguyễn Ái Quốc tìm thấy con đường cứu nước đúng đắn cho dân tộc Việt Nam vào năm nào?",
-              options: ["A. Năm 1920", "B. Năm 1911", "C. Năm 1925", "D. Năm 1930"],
-              answer: 0,
-              explanation: "Tháng 7/1920, khi đọc Luận cương của Lê-nin, Người xác định con đường cách mạng vô sản."
-            },
-            {
-              question: "Tổ chức tiền thân của Đảng Cộng sản Việt Nam do Nguyễn Ái Quốc thành lập tháng 6/1925 là:",
-              options: ["A. Hội Việt Nam Cách mạng Thanh niên", "B. Tâm Tâm xã", "C. Việt Nam Quốc dân đảng", "D. Tân Việt Cách mạng đảng"],
-              answer: 0,
-              explanation: "Hội Việt Nam Cách mạng Thanh niên thành lập tại Quảng Châu (Trung Quốc) tháng 6/1925."
-            },
-            {
-              question: "Đảng Cộng sản Việt Nam được thành lập vào thời gian nào?",
-              options: ["A. Đầu năm 1930", "B. Tháng 8/1945", "C. Tháng 5/1954", "D. Tháng 9/1945"],
-              answer: 0,
-              explanation: "Hội nghị hợp nhất các tổ chức cộng sản đầu năm 1930 đã thành lập Đảng Cộng sản Việt Nam."
-            }
-          ];
-        case 'Địa lý':
-          return [
-            {
-              question: "Khu công nghệ cao Hòa Lạc thuộc tỉnh/thành phố nào của nước ta?",
-              options: ["A. Hà Nội", "B. Đà Nẵng", "C. TP. Hồ Chí Minh", "D. Hải Phòng"],
-              answer: 0,
-              explanation: "Khu công nghệ cao Hòa Lạc nằm ở phía Tây thủ đô Hà Nội (huyện Thạch Thất)."
-            },
-            {
-                            question: "Vùng nào là vựa lúa và vùng sản xuất thủy sản lớn nhất cả nước?",
-              options: ["A. Đồng bằng sông Cửu Long", "B. Đồng bằng sông Hồng", "C. Đông Nam Bộ", "D. Tây Nguyên"],
-              answer: 0,
-              explanation: "Đồng bằng sông Cửu Long chiếm hơn 50% sản lượng lúa và thủy sản của cả nước."
-            },
-            {
-              question: "Xu hướng chuyển dịch cơ cấu kinh tế theo ngành ở nước ta hiện nay là gì?",
-              options: ["A. Giảm tỉ trọng Nông-Lâm-Ngư nghiệp, tăng tỉ trọng Công nghiệp và Dịch vụ", "B. Tăng tỉ trọng Nông nghiệp", "C. Giảm tỉ trọng Dịch vụ", "D. Không thay đổi"],
-              answer: 0,
-              explanation: "Quá trình công nghiệp hóa thúc đẩy tỉ trọng công nghiệp - xây dựng và dịch vụ tăng lên."
-            }
-          ];
-        default: // GDCD & Các môn khác
-          return [
-            {
-              question: "Lí tưởng sống cao đẹp của thanh niên học sinh hiện nay là gì?",
-              options: ["A. Ra sức học tập, rèn luyện đạo đức và làm chủ khoa học công nghệ", "B. Chỉ lo hưởng thụ cá nhân", "C. Sống ỷ lại vào gia đình", "D. Bỏ qua các hoạt động tập thể"],
-              answer: 0,
-              explanation: "Thanh niên cần có khát vọng vươn lên, học tập tốt để cống hiến cho gia đình và đất nước."
-            },
-            {
-              question: "Công dân thực hiện quyền tự do kinh doanh phải đi đôi với nghĩa vụ nào?",
-              options: ["A. Kê khai trung thực và đóng thuế đầy đủ theo quy định", "B. Tự ý kinh doanh hàng cấm", "C. Trốn thuế để tăng lợi nhuận", "D. Không cần đăng ký kinh doanh"],
-              answer: 0,
-              explanation: "Kinh doanh đúng pháp luật và nộp thuế đầy đủ là nghĩa vụ bắt buộc của công dân."
-            },
-            {
-              question: "Theo biểu đồ quên Ebbinghaus, việc ôn tập lại kiến thức sau 24 giờ giúp ích gì?",
-              options: ["A. Khôi phục trí nhớ lên 100% và kéo dài thời gian ghi nhớ", "B. Làm lãng phí thời gian", "C. Khiến não bộ nhanh quên hơn", "D. Không có tác dụng gì"],
-              answer: 0,
-              explanation: "Ôn tập đúng điểm rơi 24h giúp củng cố liên kết thần kinh, chống lại sự đào thải tự nhiên."
-            }
-          ];
-      }
-    }
-
+function generateOfflineQuiz(lesson) {
+  switch (lesson.subject) {
+    case 'Toán':
+      return [
+        {
+          question: "Trong phương trình bậc hai ax² + bx + c = 0 (a ≠ 0), tổng hai nghiệm S (x₁ + x₂) bằng bao nhiêu?",
+          options: ["A. -b / a", "B. c / a", "C. -c / a", "D. b / a"],
+          answer: 0,
+          explanation: "Theo hệ thức Vi-ét, tổng hai nghiệm S = -b/a và tích P = c/a."
+        },
+        {
+          question: "Góc nội tiếp chắn nửa đường tròn có số đo bằng bao nhiêu độ?",
+          options: ["A. 90°", "B. 180°", "C. 60°", "D. 45°"],
+          answer: 0,
+          explanation: "Góc nội tiếp chắn nửa đường tròn (cung 180°) có số đo bằng nửa cung bị chắn nên bằng 90°."
+        },
+        {
+          question: "Tổng hai góc đối diện của một tứ giác nội tiếp đường tròn luôn bằng:",
+          options: ["A. 180°", "B. 90°", "C. 360°", "D. 120°"],
+          answer: 0,
+          explanation: "Trong một tứ giác nội tiếp, tổng số đo hai góc đối diện nhau bằng 180°."
+        }
+      ];
+    case 'Ngữ văn':
+      return [
+        {
+          question: "Tác phẩm 'Chuyện người con gái Nam Xương' do ai sáng tác?",
+          options: ["A. Nguyễn Dữ", "B. Nguyễn Du", "C. Nguyễn Đình Chiểu", "D. Lê Thánh Tông"],
+          answer: 0,
+          explanation: "Tác phẩm trích từ 'Truyền kì mạn lục' của danh sĩ Nguyễn Dữ thế kỉ XVI."
+        },
+        {
+          question: "Kiệt tác 'Truyện Kiều' của đại thi hào Nguyễn Du được viết theo thể thơ nào?",
+          options: ["A. Lục bát", "B. Song thất lục bát", "C. Thất ngôn bát cú", "D. Tự do"],
+          answer: 0,
+          explanation: "Truyện Kiều gồm 3254 câu thơ lục bát đạt đến đỉnh cao nghệ thuật ngôn từ dân tộc."
+        },
+        {
+          question: "Chi tiết nào là nguyên nhân trực tiếp gây nên nỗi oan khuất của nhân vật Vũ Nương?",
+          options: ["A. Lời nói ngây thơ của bé Đản về chiếc bóng trên tường", "B. Sự gièm pha của hàng xóm", "C. Mẹ chồng ghét bỏ", "D. Thư từ bị thất lạc"],
+          answer: 0,
+          explanation: "Chiếc bóng trên tường và lời nói ngây thơ của bé Đản khiến Trương Sinh nghi oan cho vợ."
+        }
+      ];
+    case 'Tiếng Anh':
+      return [
+        {
+          question: "Cấu trúc câu ước (Wish) diễn tả mong muốn không có thật ở hiện tại là gì?",
+          options: ["A. S + wish(es) + S + V2/ed (were)", "B. S + wish(es) + S + will + V", "C. S + wish(es) + S + V(s/es)", "D. S + wish(es) + to V"],
+          answer: 0,
+          explanation: "Câu ước ở hiện tại lùi về thì quá khứ đơn (V2/ed, to be dùng were cho mọi ngôi)."
+        },
+        {
+          question: "Trong câu điều kiện loại 1 (If + S + V(s/es)), mệnh đề chính dùng cấu trúc nào?",
+          options: ["A. S + will/can + V(inf)", "B. S + would + V(inf)", "C. S + had + V3/ed", "D. S + V2/ed"],
+          answer: 0,
+          explanation: "Câu điều kiện loại 1 diễn tả sự việc có thể xảy ra ở hiện tại/tương lai: If + hiện tại đơn, S + will + V nguyên mẫu."
+        },
+        {
+          question: "Công thức chung của câu bị động (Passive Voice) trong Tiếng Anh là gì?",
+          options: ["A. S + be + V3/ed + (by O)", "B. S + have + V-ing", "C. S + do/does + V(inf)", "D. S + be + V-ing"],
+          answer: 0,
+          explanation: "Câu bị động luôn có dạng động từ 'to be' chia theo thì kết hợp với phân từ hai (V3/ed)."
+        }
+      ];
+    case 'Vật lý':
+      return [
+        {
+          question: "Công thức biểu thị đúng Định luật Ôm cho đoạn mạch là gì?",
+          options: ["A. I = U / R", "B. I = U . R", "C. U = I / R", "D. R = U . I"],
+          answer: 0,
+          explanation: "Cường độ dòng điện I tỉ lệ thuận với hiệu điện thế U và tỉ lệ nghịch với điện trở R: I = U/R."
+        },
+        {
+          question: "Nhiệt lượng tỏa ra trên dây dẫn theo định luật Jun - Len-xơ được tính bằng công thức nào?",
+          options: ["A. Q = I² . R . t", "B. Q = U . I", "C. Q = I . R² . t", "D. Q = U / R"],
+          answer: 0,
+          explanation: "Định luật Jun - Len-xơ: Q = I².R.t (tính bằng Jun)."
+        },
+        {
+          question: "Tia tới đi qua quang tâm O của thấu kính hội tụ sẽ cho tia ló như thế nào?",
+          options: ["A. Tiếp tục truyền thẳng theo phương của tia tới", "B. Đi qua tiêu điểm F", "C. Song song với trục chính", "D. Phản xạ ngược trở lại"],
+          answer: 0,
+          explanation: "Mọi tia sáng đi qua quang tâm O của thấu kính đều truyền thẳng không đổi hướng."
+        }
+      ];
+    case 'Hóa học':
+      return [
+        {
+          question: "Kim loại nào sau đây KHÔNG phản ứng được với dung dịch axit HCl loãng?",
+          options: ["A. Đồng (Cu)", "B. Sắt (Fe)", "C. Kẽm (Zn)", "D. Magie (Mg)"],
+          answer: 0,
+          explanation: "Đồng (Cu) đứng sau Hiđro trong dãy hoạt động hóa học nên không tác dụng với HCl loãng."
+        },
+        {
+          question: "Khí Hiđrocacbon nào làm mất màu dung dịch Brom ở điều kiện thường?",
+          options: ["A. Etilen (C₂H₄)", "B. Metan (CH₄)", "C. Khí Cacbonic (CO₂)", "D. Khí Nitơ (N₂)"],
+          answer: 0,
+          explanation: "Etilen có chứa 1 liên kết đôi kém bền nên tham gia phản ứng cộng làm mất màu dung dịch Brom."
+        },
+        {
+          question: "Khi cho Sắt (Fe) tác dụng với dung dịch HCl thu được muối nào?",
+          options: ["A. FeCl₂", "B. FeCl₃", "C. Fe₂(SO₄)₃", "D. FeO"],
+          answer: 0,
+          explanation: "Fe phản ứng với HCl chỉ tạo ra muối Sắt(II) clorua (FeCl₂) và giải phóng khí H₂."
+        }
+      ];
+    case 'Sinh học':
+      return [
+        {
+          question: "Theo nguyên tắc bổ sung trong phân tử ADN, Ađênin (A) luôn liên kết với loại Nu nào?",
+          options: ["A. Timin (T)", "B. Guanin (G)", "C. Xitôzin (X)", "D. Uraxin (U)"],
+          answer: 0,
+          explanation: "Trong ADN, A liên kết với T bằng 2 liên kết hiđrô; G liên kết với X bằng 3 liên kết hiđrô."
+        },
+        {
+          question: "Mục đích của phép lai phân tích trong di truyền học Menđen là gì?",
+          options: ["A. Xác định kiểu gen của cá thể mang tính trạng trội", "B. Tạo ra giống cây trồng mới", "C. Xác định tính trạng lặn", "D. Nhân bản vô tính"],
+          answer: 0,
+          explanation: "Lai phân tích giúp kiểm tra cá thể mang tính trạng trội là đồng hợp (AA) hay dị hợp (Aa)."
+        },
+        {
+          question: "Phân tử ARN được cấu tạo từ 4 loại đơn phân nào?",
+          options: ["A. A, U, G, X", "B. A, T, G, X", "C. A, T, U, G", "D. T, U, G, X"],
+          answer: 0,
+          explanation: "ARN không có Timin (T) mà thay bằng Uraxin (U), gồm 4 loại đơn phân A, U, G, X."
+        }
+      ];
+    case 'Lịch sử':
+      return [
+        {
+          question: "Nguyễn Ái Quốc tìm thấy con đường cứu nước đúng đắn cho dân tộc Việt Nam vào năm nào?",
+          options: ["A. Năm 1920", "B. Năm 1911", "C. Năm 1925", "D. Năm 1930"],
+          answer: 0,
+          explanation: "Tháng 7/1920, khi đọc Luận cương của Lê-nin, Người xác định con đường cách mạng vô sản."
+        },
+        {
+          question: "Tổ chức tiền thân của Đảng Cộng sản Việt Nam do Nguyễn Ái Quốc thành lập tháng 6/1925 là:",
+          options: ["A. Hội Việt Nam Cách mạng Thanh niên", "B. Tâm Tâm xã", "C. Việt Nam Quốc dân đảng", "D. Tân Việt Cách mạng đảng"],
+          answer: 0,
+          explanation: "Hội Việt Nam Cách mạng Thanh niên thành lập tại Quảng Châu (Trung Quốc) tháng 6/1925."
+        },
+        {
+          question: "Đảng Cộng sản Việt Nam được thành lập vào thời gian nào?",
+          options: ["A. Đầu năm 1930", "B. Tháng 8/1945", "C. Tháng 5/1954", "D. Tháng 9/1945"],
+          answer: 0,
+          explanation: "Hội nghị hợp nhất các tổ chức cộng sản đầu năm 1930 đã thành lập Đảng Cộng sản Việt Nam."
+        }
+      ];
+    case 'Địa lý':
+      return [
+        {
+          question: "Khu công nghệ cao Hòa Lạc thuộc tỉnh/thành phố nào của nước ta?",
+          options: ["A. Hà Nội", "B. Đà Nẵng", "C. TP. Hồ Chí Minh", "D. Hải Phòng"],
+          answer: 0,
+          explanation: "Khu công nghệ cao Hòa Lạc nằm ở phía Tây thủ đô Hà Nội (huyện Thạch Thất)."
+        },
+        {
+          question: "Vùng nào là vựa lúa và vùng sản xuất thủy sản lớn nhất cả nước?",
+          options: ["A. Đồng bằng sông Cửu Long", "B. Đồng bằng sông Hồng", "C. Đông Nam Bộ", "D. Tây Nguyên"],
+          answer: 0,
+          explanation: "Đồng bằng sông Cửu Long chiếm hơn 50% sản lượng lúa và thủy sản của cả nước."
+        },
+        {
+          question: "Xu hướng chuyển dịch cơ cấu kinh tế theo ngành ở nước ta hiện nay là gì?",
+          options: ["A. Giảm tỉ trọng Nông-Lâm-Ngư nghiệp, tăng tỉ trọng Công nghiệp và Dịch vụ", "B. Tăng tỉ trọng Nông nghiệp", "C. Giảm tỉ trọng Dịch vụ", "D. Không thay đổi"],
+          answer: 0,
+          explanation: "Quá trình công nghiệp hóa thúc đẩy tỉ trọng công nghiệp - xây dựng và dịch vụ tăng lên."
+        }
+      ];
+    default:
+      return [
+        {
+          question: "Lí tưởng sống cao đẹp của thanh niên học sinh hiện nay là gì?",
+          options: ["A. Ra sức học tập, rèn luyện đạo đức và làm chủ khoa học công nghệ", "B. Chỉ lo hưởng thụ cá nhân", "C. Sống ỷ lại vào gia đình", "D. Bỏ qua các hoạt động tập thể"],
+          answer: 0,
+          explanation: "Thanh niên cần có khát vọng vươn lên, học tập tốt để cống hiến cho gia đình và đất nước."
+        },
+        {
+          question: "Công dân thực hiện quyền tự do kinh doanh phải đi đôi với nghĩa vụ nào?",
+          options: ["A. Kê khai trung thực và đóng thuế đầy đủ theo quy định", "B. Tự ý kinh doanh hàng cấm", "C. Trốn thuế để tăng lợi nhuận", "D. Không cần đăng ký kinh doanh"],
+          answer: 0,
+          explanation: "Kinh doanh đúng pháp luật và nộp thuế đầy đủ là nghĩa vụ bắt buộc của công dân."
+        },
+        {
+          question: "Theo biểu đồ quên Ebbinghaus, việc ôn tập lại kiến thức sau 24 giờ giúp ích gì?",
+          options: ["A. Khôi phục trí nhớ lên 100% và kéo dài thời gian ghi nhớ", "B. Làm lãng phí thời gian", "C. Khiến não bộ nhanh quên hơn", "D. Không có tác dụng gì"],
+          answer: 0,
+          explanation: "Ôn tập đúng điểm rơi 24h giúp củng cố liên kết thần kinh, chống lại sự đào thải tự nhiên."
+        }
+      ];
+  }
+}
+    
     function renderQuizQuestions(quizData) {
       const container = document.getElementById('quiz-questions-list');
       container.innerHTML = '';
